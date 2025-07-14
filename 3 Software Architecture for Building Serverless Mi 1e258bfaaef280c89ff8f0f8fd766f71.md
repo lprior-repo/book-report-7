@@ -8,7 +8,7 @@ Unlike buildings, serverless architecture is designed to evolve over time withou
 
 ## Event Driven Architecture
 
-By far the most common architecture in Serverless. 
+By far the most common architecture in Serverless.
 
 *Event-driven architecture (EDA) is an architectural concept that uses events to communicate between decoupled microservices asynchronously. In EDA, there are systems that produce events (producers), systems that consume events (consumers), applications that transport events (event buses, messaging systems, etc.), and systems that react to events.*
 
@@ -43,7 +43,7 @@ Initially, **two-tier client/server architecture** was the standard setup: a **s
 
 - **Two-tier model**: Client manages both the presentation and application layers, connecting directly to a database server.
 - **Challenge**: Business logic became intertwined between tiers, making updates complex.
-- 
+-
 
 ![image (84).png](static/chapter3/image_(84).png)
 
@@ -52,16 +52,16 @@ Initially, **two-tier client/server architecture** was the standard setup: a **s
 To better separate responsibilities, the **three-tier architecture** emerged, adding an **application tier** between the client and the database.
 
 - **Three distinct tiers**:
-    - **Presentation Tier**: User interface
-    - **Application Tier** (Middle Tier): Business logic
-    - **Data Tier**: Database management
+  - **Presentation Tier**: User interface
+  - **Application Tier** (Middle Tier): Business logic
+  - **Data Tier**: Database management
 
 ![image (85).png](static/chapter3/image_(85).png)
 
 - **Key improvements**:
-    - Prevented direct data manipulation by clients
-    - Enabled thin clients (lower client-side processing needs)
-    - Allowed multiple client types (desktop, web) to access business logic uniformly
+  - Prevented direct data manipulation by clients
+  - Enabled thin clients (lower client-side processing needs)
+  - Allowed multiple client types (desktop, web) to access business logic uniformly
 - **Supporting technologies**: CORBA, COM, DCOM, EJB — introduced interfaces for standardized communication between tiers.
 
 ---
@@ -132,17 +132,17 @@ While often used interchangeably, **layers** and **tiers** focus on different as
 ## Core Components
 
 - **Core Application (Service)**:
-    - Contains business logic and domain entities.
-    - Represents the pure "heart" of the service (e.g., a microservice).
+  - Contains business logic and domain entities.
+  - Represents the pure "heart" of the service (e.g., a microservice).
 - **Ports**:
-    - Interfaces through which the core interacts with external systems.
-    - Can represent APIs, database protocols, message queues, etc.
+  - Interfaces through which the core interacts with external systems.
+  - Can represent APIs, database protocols, message queues, etc.
 - **Adapters**:
-    - Implementations that connect external systems to ports.
-    - Examples: HTTP adapters, REST API adapters, NoSQL adapters, event bus connectors, legacy CRM connectors.
+  - Implementations that connect external systems to ports.
+  - Examples: HTTP adapters, REST API adapters, NoSQL adapters, event bus connectors, legacy CRM connectors.
 
 > Note: The hexagon shape simply allows room to represent multiple interfaces — it doesn’t imply exactly six connections.
-> 
+>
 
 ## Warning
 
@@ -156,11 +156,11 @@ Hexagonal principles apply to serverless but must be used thoughtfully:
 
 - **Port Concepts**: Still very relevant. APIs and service endpoints in serverless naturally act like ports.
 - **Adapters**:
-    - Sometimes needed, especially when integrating with legacy systems.
-    - Not always necessary when serverless services already offer managed integrations (e.g., AWS Lambda + API Gateway).
+  - Sometimes needed, especially when integrating with legacy systems.
+  - Not always necessary when serverless services already offer managed integrations (e.g., AWS Lambda + API Gateway).
 - **Testing with Adapters**:
-    - You might use adapters for isolated testing.
-    - However, in small, tightly scoped serverless microservices, full hexagonal setups can add unnecessary complexity.
+  - You might use adapters for isolated testing.
+  - However, in small, tightly scoped serverless microservices, full hexagonal setups can add unnecessary complexity.
 
 **Caution**: Full-blown hexagonal architecture is better suited for:
 
@@ -230,32 +230,32 @@ In the world of software design, **multiple architectural patterns** exist to pr
 ![image (91).png](static/chapter3/image_(91).png)
 
 - **Represents Part of a Business Domain**:
-    - Each microservice implements a slice of the business logic.
-    - Multiple microservices can collaborate within a **bounded context**.
-    
+  - Each microservice implements a slice of the business logic.
+  - Multiple microservices can collaborate within a **bounded context**.
+
     ![image (92).png](static/chapter3/image_(92).png)
-    
+
 - **Single Purpose (Single-Responsibility Principle)**:
-    - Inspired by Robert C. Martin’s SRP: "one reason to change."
-    - Each microservice focuses on one business capability.
-    - Naming microservices carefully helps reinforce clarity (even playful names like PUPPy can boost team identity).
+  - Inspired by Robert C. Martin’s SRP: "one reason to change."
+  - Each microservice focuses on one business capability.
+  - Naming microservices carefully helps reinforce clarity (even playful names like PUPPy can boost team identity).
 - **Well-Defined Communication Boundary**:
-    - Microservices expose **APIs** or **emit events** for interaction.
-    - Clear contracts prevent leaking internal changes externally.
-    - Supports decoupling and future-proofing.
-    
+  - Microservices expose **APIs** or **emit events** for interaction.
+  - Clear contracts prevent leaking internal changes externally.
+  - Supports decoupling and future-proofing.
+
     ![image (93).png](static/chapter3/image_(93).png)
-    
+
 - **Loosely Coupled**:
-    - Services interact via standardized APIs or events.
-    - Changes in one microservice should not ripple outward.
-    - Promotes independent evolution of services.
+  - Services interact via standardized APIs or events.
+  - Changes in one microservice should not ripple outward.
+  - Promotes independent evolution of services.
 - **Observable at a Granular Level**:
-    - Fine-grained monitoring is essential.
-    - Serverless microservices, in particular, allow deep insights via cloud-native observability tools.
+  - Fine-grained monitoring is essential.
+  - Serverless microservices, in particular, allow deep insights via cloud-native observability tools.
 - **Owned by a Single Team**:
-    - Avoid shared ownership to ensure clear responsibility and minimize friction.
-    - Align ownership with business domain-focused teams for smoother collaboration.
+  - Avoid shared ownership to ensure clear responsibility and minimize friction.
+  - Align ownership with business domain-focused teams for smoother collaboration.
 
 ## Domain Driven Design and Serverless
 
@@ -268,17 +268,17 @@ In a **serverless** world, DDD becomes even more vital because the cloud’s fle
 ## Why DDD Matters in Serverless Architecture
 
 - **Clarity Through Bounded Contexts**:
-    - In DDD, a **bounded context** defines the boundary around a business concept and the language (ubiquitous language) used within it.
-    - In serverless, each bounded context ideally maps to a **set of microservices** or functions — keeping responsibilities clear and avoiding tangled systems.
+  - In DDD, a **bounded context** defines the boundary around a business concept and the language (ubiquitous language) used within it.
+  - In serverless, each bounded context ideally maps to a **set of microservices** or functions — keeping responsibilities clear and avoiding tangled systems.
 - **Focusing on Core Domains**:
-    - DDD teaches teams to identify the **core domain** — the critical business areas where innovation matters most.
-    - Serverless architectures should prioritize investing in the core domain with custom services, while non-core needs (like authentication, billing) can lean on managed cloud services.
+  - DDD teaches teams to identify the **core domain** — the critical business areas where innovation matters most.
+  - Serverless architectures should prioritize investing in the core domain with custom services, while non-core needs (like authentication, billing) can lean on managed cloud services.
 - **Encapsulation and Anti-Corruption Layers**:
-    - DDD promotes using **Anti-Corruption Layers (ACLs)** to **protect your domain models** from external system influences.
-    - In serverless, ACLs can be lightweight functions or microservices that translate external API data into your internal models, avoiding polluting your core logic with external quirks.
+  - DDD promotes using **Anti-Corruption Layers (ACLs)** to **protect your domain models** from external system influences.
+  - In serverless, ACLs can be lightweight functions or microservices that translate external API data into your internal models, avoiding polluting your core logic with external quirks.
 - **Resilience to Change**:
-    - Bounded contexts and modular design make adapting to changing business needs easier.
-    - In serverless, this is critical because cloud services evolve rapidly, and flexibility protects long-term viability.
+  - Bounded contexts and modular design make adapting to changing business needs easier.
+  - In serverless, this is critical because cloud services evolve rapidly, and flexibility protects long-term viability.
 
 ![image (9).png](static/chapter3/image_(9).png)
 
@@ -299,36 +299,36 @@ The primary choice is between **synchronous** (request/response) and **asynchron
 It’s common, but creates **stronger coupling** between services and can introduce **latency risks**.
 
 - **Simple Request/Response**:
-    - Client (e.g., checkout) calls another service (e.g., payments) and waits.
-    - Risks include service timeouts, chained dependencies, degraded UX during slowdowns.
-        
+  - Client (e.g., checkout) calls another service (e.g., payments) and waits.
+  - Risks include service timeouts, chained dependencies, degraded UX during slowdowns.
+
         ![image (94).png](static/chapter3/image_(94).png)
-        
-    - Example: Web app waiting on checkout → payments → third-party provider call chain.
+
+  - Example: Web app waiting on checkout → payments → third-party provider call chain.
 - **Request with Acknowledgment (202 Accepted)**:
-    - Service acknowledges receipt but processes the request **asynchronously**.
-    - Client can disconnect immediately.
-    - Use Cases:
-        - Bulk data processing
-        - Batch settlement captures
-        - Mass generation of discount codes
-        - Delayed processing of uploaded media
+  - Service acknowledges receipt but processes the request **asynchronously**.
+  - Client can disconnect immediately.
+  - Use Cases:
+    - Bulk data processing
+    - Batch settlement captures
+    - Mass generation of discount codes
+    - Delayed processing of uploaded media
 
 ![image.png](static/chapter3/image.png)
 
 - **Request with Acknowledgment and Client Polling**:
-    - Client asks for a status update periodically (/status endpoint).
-    - Disadvantages:
-        - Requires repeated polling logic
-        - Adds operational complexity and extra costs
-        - Delays in user feedback
-    
+  - Client asks for a status update periodically (/status endpoint).
+  - Disadvantages:
+    - Requires repeated polling logic
+    - Adds operational complexity and extra costs
+    - Delays in user feedback
+
     ![image.png](static/chapter3/image%201.png)
-    
+
 - **Synchronous Request/Response with Async Webhook Notification**:
-    - Instead of polling, the service pushes status updates to the client’s webhook endpoint.
-    - **More efficient** and **less taxing** than polling.
-    - Requires the client to maintain an endpoint to listen for callbacks.
+  - Instead of polling, the service pushes status updates to the client’s webhook endpoint.
+  - **More efficient** and **less taxing** than polling.
+  - Requires the client to maintain an endpoint to listen for callbacks.
 
 ![image (7) (1).png](static/chapter3/image_(7)_(1).png)
 
@@ -355,7 +355,7 @@ A similar concept is applied in team sports, model building, and more. Here are 
 
 ![image.png](static/chapter3/image%202.png)
 
-Then applying smaller pieces 
+Then applying smaller pieces
 
 ![image.png](static/chapter3/image%203.png)
 
@@ -393,7 +393,7 @@ In serverless, you also have powerful ways to make the set pieces work togeth
 - Think about your observability needs: log streaming, analysis, and filtering activities.
 - Determine fraud prevention and intelligence activities that should be part of your business logic (inspecting data, monitoring user activities, etc.).
 
-Microservices: 
+Microservices:
 
 - You might have microservices that don’t have an API or provide much end user value
 - They might just perform batch jobs or handling tracing or a wide variety of tasks
@@ -404,18 +404,18 @@ Event-driven architecture is an architectural paradigm that uses events to commu
 
 Event-driven computing is the implementation or realization of event-driven architecture and the behavior of systems that work asynchronously.
 
-4 parts of EDA reminder: 
+4 parts of EDA reminder:
 
 - Event Carrier, Event Producer, Event Carriers, and Events
 - (Event routers, Bus, meditator, broker, etc)
 
-A reactive microservice is loosely coupled, resilient and scalable but beyond loose coupling doesn’t show much. 
+A reactive microservice is loosely coupled, resilient and scalable but beyond loose coupling doesn’t show much.
 
 ![image.png](static/chapter3/image%207.png)
 
 ![image.png](static/chapter3/image%208.png)
 
-EDA pairs well with serverless as they complement serverless in that they enable on-demand computing, scale to zero, and pay per use. 
+EDA pairs well with serverless as they complement serverless in that they enable on-demand computing, scale to zero, and pay per use.
 
 ## EventBridge
 
@@ -464,6 +464,7 @@ Amazon EventBridge is a serverless event bus for building event-driven applicati
 ![image.png](static/chapter3/image%2011.png)
 
 ## Domain Events, Event Categories and Types
+
 ``
 
 In EventBridge, an event is a data capsule, represented as a JSON object, notifying that something has happened. Event producers publish these notifications, and event consumers subscribe to them.
@@ -696,7 +697,7 @@ In EventBridge, you can modify source events before sending them to targets. Thi
 
 While often used interchangeably
 
-**Message** is typically directed at a specific receiver with an expectation of processing. 
+**Message** is typically directed at a specific receiver with an expectation of processing.
 
 E**vent** is a broadcast notification of a past occurrence to any interested subscribers.
 
@@ -707,7 +708,7 @@ E**vent** is a broadcast notification of a past occurrence to any interested sub
 ## Event Producers
 
 - **Be Agnostic of Consumers**: This is the golden rule of EDA.
-    - NOTE: Well publish and forget there are situations well still loosely coupled within reason, a publisher may want to know the outcome of the handling of an event by a downstream customer (Order status, recordkeeping)
+  - > **NOTE:** Well publish and forget there are situations well still loosely coupled within reason, a publisher may want to know the outcome of the handling of an event by a downstream customer (Order status, recordkeeping)
 - **Identify Origin**: Clearly identify the event's source (domain, service) in the payload.
 - **Use Schema Contracts**: Treat domain events as data contracts that conform to a defined schema. Version events to avoid breaking changes.
 - **Carry Minimal Data**: Include just enough data to denote the event's occurrence.

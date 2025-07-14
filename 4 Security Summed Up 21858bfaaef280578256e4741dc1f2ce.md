@@ -1,10 +1,10 @@
 # 4. Security Summed Up
 
-We need to shift left on security and be part of our considerations the moment we are considering ideas for software. 
+We need to shift left on security and be part of our considerations the moment we are considering ideas for software.
 
 ![image.png](static/chapter4/image.png)
 
-Serverless provides even different security requirements. 
+Serverless provides even different security requirements.
 
 ## 1. The Paradox of Managed Services
 
@@ -60,12 +60,12 @@ Under this model, every single interface is protected by a layer of authenticati
 To understand the power of Zero Trust, consider the traditional "castle-and-moat" security model:
 
 > A knight gallops up to the castle walls, presents convincing credentials to the guards, and enters across the lowered drawbridge. If the perimeter guards are the extent of the castle's security, this knight is now free to roam the rooms, dungeons, and jewel store, stealing assets or gathering intelligence for future raids.
-> 
+>
 
 Now, consider the Zero Trust approach:
 
 > If, however, every individual door, hallway, and treasure chest inside the castle had its own suspicious guard demanding unique credentials, the knight's infiltration would be stopped at the first door. They would be entirely restricted, and the castle would be secure. A single compromised key would not unlock the entire kingdom; it would only unlock a single room.
-> 
+>
 
 This is the core difference: a castle-and-moat model only defends the perimeter, while a **Zero Trust model places a secure perimeter around every single resource.**
 
@@ -112,7 +112,7 @@ This policy violates the principle of least privilege. The read-only function ca
 Instead, you should create two separate, highly-scoped policies.
 
 - **Policy for the Read-Only Lambda:**JSON
-    
+
     ```json
     {
       "Version": "2012-10-17",
@@ -130,9 +130,9 @@ Instead, you should create two separate, highly-scoped policies.
       ]
     }
     ```
-    
+
 - **Policy for the Write-Only Lambda:**JSON
-    
+
     ```json
     {
       "Version": "2012-10-17",
@@ -149,7 +149,6 @@ Instead, you should create two separate, highly-scoped policies.
       ]
     }
     ```
-    
 
 Fortunately, AWS IAM operates on a **deny by default** stance. You must explicitly grant every permission, which naturally encourages a least-privilege approach.
 
@@ -199,9 +198,9 @@ Finally, it's crucial to understand your place within the AWS Shared Responsibil
 AWS is responsible for securing the underlying infrastructure: the data centers, hardware, networking, and the managed services themselves (e.g., patching the Lambda runtime).
 - **Your Responsibility (Security *IN* the Cloud):**
 As a serverless developer, you are responsible for:
-    - The security of your own function code and its third-party libraries.
-    - The secure configuration of the AWS resources you define.
-    - The IAM roles and policies that govern access control in your application.
+  - The security of your own function code and its third-party libraries.
+  - The secure configuration of the AWS resources you define.
+  - The IAM roles and policies that govern access control in your application.
 
 ![image.png](static/chapter4/image%201.png)
 
@@ -260,7 +259,7 @@ Finally, assess your proposed mitigations. Do they fully address the threat? Is 
 Your application is more than just the code you write. It's also built upon a foundation of open-source packages and dependencies. This "supply chain" is a primary target for attackers.
 
 > According to security company Socket, supply chain attacks rose 700% in the past year. In one notable incident, a maintainer intentionally added malware to his own popular package, which was a dependency of the official AWS SDK.
-> 
+>
 
 Following the **Shared Responsibility Model**, AWS is responsible for patching the Lambda runtime environment, but **you are 100% responsible for the security of your function code and all the third-party libraries you include.**
 
@@ -294,7 +293,7 @@ For organizations with a high level of security maturity, you can go even furthe
 
 ![image.png](static/chapter4/image%202.png)
 
-Sample Cognito and API Gateway 
+Sample Cognito and API Gateway
 
 ![image.png](static/chapter4/image%203.png)
 
@@ -340,10 +339,10 @@ Caching the responses of your Lambda authorizers will result in quicker response
 Beyond authorization, you must protect your API from abuse and bad data.
 
 - **Denial of Service/Wallet Protection:**
-    - **Usage Plans:** You can throttle requests from individual clients by issuing them API keys and setting rate limits (e.g., 10 requests/second) and quotas (e.g., 5,000 requests/day).
-    - **AWS WAF (Web Application Firewall):** This provides a powerful firewall at the edge, allowing you to block malicious requests based on IP addresses, geographic location, or patterns indicating common attacks like SQL injection.
+  - **Usage Plans:** You can throttle requests from individual clients by issuing them API keys and setting rate limits (e.g., 10 requests/second) and quotas (e.g., 5,000 requests/day).
+  - **AWS WAF (Web Application Firewall):** This provides a powerful firewall at the edge, allowing you to block malicious requests based on IP addresses, geographic location, or patterns indicating common attacks like SQL injection.
 - **Request Validation:**
-    - You can define a **JSON Schema** for your API routes. API Gateway will validate the structure of incoming requests against this schema *before* invoking your backend Lambda function. If the request is missing a required field or has the wrong data type, it is rejected immediately, saving a function invocation and preventing malformed data from entering your system.
+  - You can define a **JSON Schema** for your API routes. API Gateway will validate the structure of incoming requests against this schema *before* invoking your backend Lambda function. If the request is missing a required field or has the wrong data type, it is rejected immediately, saving a function invocation and preventing malformed data from entering your system.
 
 ![image.png](static/chapter4/image%205.png)
 
@@ -374,13 +373,13 @@ A powerful pattern to solve this is using **Nested JSON Web Tokens (JWTs)**.
     - If both steps succeed, the message is confirmed to be both authentic (from the correct sender) and integral (unaltered).
 
 > Key Management: All cryptographic keys (public/private key pairs and shared secrets) should be securely stored and managed in a service like AWS Key Management Service (KMS) or AWS Secrets Manager and fetched at runtime. The private key must never be shared.
-> 
+>
 
 ## **Simpler Alternatives Native AWS Integrations**
 
 For less complex needs, some AWS services are beginning to offer this functionality natively. For example, **Amazon SNS** can now digitally sign messages it delivers, allowing subscribers to easily verify their authenticity without a custom cryptographic implementation.
 
-## Other Methods for Improving Security on Web API’s.
+## Other Methods for Improving Security on Web API’s
 
 ◦ **Throttling via Usage Plans**: Control the rate of requests from individual API clients to prevent deliberate or inadvertent abuse of your service**35**.
 

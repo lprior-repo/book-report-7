@@ -9,9 +9,9 @@ The concept of software patterns has a rich history:
 
 - **Foundational Works** No discussion on software patterns is complete without mentioning *Design Patterns: Elements of Reusable Object-Oriented Software* (1994) by the **Gang of Four (GoF)**, which was heavily influenced by Object-Oriented (OO) principles but presented patterns that outlasted popular programming languages of that era.
 - **Integration and Microservices** Ten years after the GoF book,
-    - *Enterprise Integration Patterns* (2004) by Gregor Hohpe and Bobby Woolf introduced a collection of 65 patterns as web services and enterprise application integrations emerged**5**.
-    - Sam Newman's *Building Microservices: Designing Fine-Grained Systems* brought new perspectives to architecting business applications, followed by
-    - Chris Richardson's *Microservices Patterns*, which presented over 40 different patterns and their implementation details.
+  - *Enterprise Integration Patterns* (2004) by Gregor Hohpe and Bobby Woolf introduced a collection of 65 patterns as web services and enterprise application integrations emerged**5**.
+  - Sam Newman's *Building Microservices: Designing Fine-Grained Systems* brought new perspectives to architecting business applications, followed by
+  - Chris Richardson's *Microservices Patterns*, which presented over 40 different patterns and their implementation details.
 - **Serverless-Specific Collections** Jeremy Daly, an AWS Serverless Hero and CEO of Ampt, published one of the earliest collections of patterns specifically focused on building serverless solutions on AWS in 2018. His updated collection continues to help engineers with serverless adoption.
 
 **Serverless itself can be viewed as a cloud development pattern** that enables building and operating highly scalable cloud solutions rapidly. It is an evolution of cloud computing and is influenced by many existing popular patterns from architecture, design, integration, storage, implementation, and operation**910**. At the same time, serverless also introduces entirely **new patterns**.
@@ -22,7 +22,7 @@ New patterns are continually being discovered and applied in serverless developm
 
  These patterns serve as **guides to inspire better serverless solutions**, rather than rigid, universal solutions. They can have several variations and distinct implementation styles, much like snowflakes.
 
-**It remains critical to understand the core fundamentals of the pattern and know when to USE IT AND NOT USE IT.** 
+**It remains critical to understand the core fundamentals of the pattern and know when to USE IT AND NOT USE IT.**
 
 ![image (14).png](static/chapter5/image_(14).png)
 
@@ -76,13 +76,12 @@ The sources provide specific examples of applying the pattern:
 - During this transition, both old and new endpoints run in parallel, allowing observation and improvement of the new service before the old one is "strangled".
 - Opportunities may arise to rebuild synchronous endpoints as asynchronous services in the target serverless architecture.
 - A "switchboard" layer is needed to route incoming requests to the correct backend. API Gateway and Backend for Frontend (BFF) patterns serve as façade layers for this purpose.
-    - **API Gateway as the façade layer:** Amazon API Gateway is suitable for AWS cloud migrations, offering service integrations to invoke HTTP endpoints. Initially, the new API Gateway becomes a target for a client application but routes requests to the legacy gateway while the new microservice is developed. Once the new microservice is ready, routing is switched directly to it, and the legacy system is further "strangled". A warning is issued that routing traffic through an extra network route (from new API Gateway to old API Gateway) during migration can add latency.
-    - 
-    
+  - **API Gateway as the façade layer:** Amazon API Gateway is suitable for AWS cloud migrations, offering service integrations to invoke HTTP endpoints. Initially, the new API Gateway becomes a target for a client application but routes requests to the legacy gateway while the new microservice is developed. Once the new microservice is ready, routing is switched directly to it, and the legacy system is further "strangled". A warning is issued that routing traffic through an extra network route (from new API Gateway to old API Gateway) during migration can add latency.
+  -
+
     ![image.png](static/chapter5/image.png)
-    
+
     ![image.png](static/chapter5/image%201.png)
-    
 
 ## The Backend for Frontend Pattern
 
@@ -141,9 +140,9 @@ Here are the core concepts of circuit breaker implementation:
 ![image (20).png](static/chapter5/image_(20).png)
 
 - **An open circuit:** When a circuit is marked as open, the connection between systems is prevented. If the third-party system is down or too slow, the Lambda function will not invoke it but will fail immediately and return an error response.
-    
+
     ![image (21).png](static/chapter5/image_(21).png)
-    
+
 - **The circuit breaker:** This is an object or manager that wraps a protected function call and monitors for errors. It uses defined logic to decide whether to declare a circuit as open or closed. This determination often depends on threshold conditions, such as a certain number of consecutive failures within a specific timeframe. The purpose of the circuit breaker is to fail fast rather than waiting for an unresponsive service, thereby limiting damage.
 - **A half-open circuit:** When a circuit is open, the circuit breaker needs a mechanism to determine if it's safe to close the circuit again. Since it cannot know if the external application has recovered, the typical approach is to wait for a duration and then allow a few invocations through. Based on the success or failure of these test calls and its internal logic, the circuit breaker will either mark the circuit as closed or keep it open with a new timeout value for another check. This "half-open" state allows the circuit breaker to "test the waters".
 
@@ -180,9 +179,9 @@ For critical services, another common use of the circuit breaker is to store req
 - **DynamoDB to store incoming requests or events,** with a status attribute to indicate whether a request has been processed or needs resubmission (RETRY).
 - **EventBridge's event archiving and replay capabilities.** When the circuit is open, a retry event is sent to a custom event bus and routed to an EventBridge archive. When the circuit closes, events are replayed from the archive onto the bus for resubmission.
 - This approach offers unlimited storage and eliminates the need for complex fetching logic, though it has limitations
-    - Event Ordering isn’t maintained so expect out of order events
-    - Replay speed control, and the ability to delete replayed events.
-    - There can also be a delay for events to arrive in the archive.
+  - Event Ordering isn’t maintained so expect out of order events
+  - Replay speed control, and the ability to delete replayed events.
+  - There can also be a delay for events to arrive in the archive.
 
 ![image (24).png](static/chapter5/image_(24).png)
 
@@ -215,8 +214,8 @@ The functionless integration pattern is applicable in various parts of a serverl
 Key AWS services that facilitate this pattern include:
 
 - **Amazon API Gateway:** It can support over a hundred AWS services as backends for API endpoints. Instead of a Lambda function, a brief integration script written in Velocity Template Language (VTL) provides the plumbing between API Gateway and the target service. For example, data from an API endpoint can be pushed directly into an SQS queue without an intermediary Lambda.
-    - Sample VTL Script
-    
+  - Sample VTL Script
+
     ```json
     {
     "Entries": [
@@ -229,10 +228,10 @@ Key AWS services that facilitate this pattern include:
     ]
     }
     ```
-    
+
 - **AWS Step Functions:** It offers direct integrations with services like Amazon DynamoDB, SQS, SNS, and EventBridge. It can also integrate with hundreds of AWS services via the AWS SDK without requiring a Lambda function. Express workflows, which support synchronous invocations, are particularly popular for integrating with API Gateway endpoints for request/response patterns in a functionless manner.
-    - Here’s a sample VTL script that takes the request payload body and provides it as input to a Step Functions workflow:
-    
+  - Here’s a sample VTL script that takes the request payload body and provides it as input to a Step Functions workflow:
+
     ```json
     #set( $body = $util.escapeJavaScript($input.json('$')) )
     {
@@ -241,11 +240,11 @@ Key AWS services that facilitate this pattern include:
     "stateMachineArn": "<arn-of-your-step-function>"
     }
     ```
-    
+
 - **Amazon EventBridge:** As an event bus or choreographer, EventBridge helps reduce the need for function code. Many AWS services can send events directly to EventBridge, and many services can directly receive events from EventBridge as targets. The "functionless-first principle" encourages assessing integration possibilities without a Lambda function.
-    
+
     ![image (32).png](static/chapter5/image_(32).png)
-    
+
 - **API Destinations:** A powerful EventBridge feature, API destinations are HTTP endpoints configurable as targets for event routing rules. They enable native integration with applications using RESTful API calls, eliminating Lambda functions for tasks like invoking external HTTP APIs. They also handle authentication, retries, DLQ attachments, and invocation rate control.
 
 ![image (28).png](static/chapter5/image_(28).png)
@@ -405,7 +404,7 @@ Service orchestration is an architectural pattern in which a central engine acts
 
 This pattern is one of the two most common approaches to implementing business processes in an enterprise, the other being microservices choreography. While choreography involves services reacting independently to events, orchestration uses a central engine to coordinate the flow. Orchestration helps in capturing business processes as a sequence of inputs, outputs, actions, tasks, and decisions, enabling automation for improved efficiency.
 
-A bad way to chain together Lambdas: 
+A bad way to chain together Lambdas:
 
 ![image(20).png](static/chapter5/image(20).png)
 
@@ -442,8 +441,8 @@ In a distributed event-driven microservices architecture, there are three main t
 - It addresses the limitations of typical API connections, which often time out for tasks lasting minutes, hours, or even days.
 - The primary orchestrator distributes tasks asynchronously to other microservices and waits for their notification of completion, without needing to know the internal implementation details of those remote services.
 - Two critical elements facilitate seamless distributed orchestration:
-    - **Events:** Used as the communication mechanism to coordinate (choreograph) microservices, often leveraging Amazon EventBridge.
-    - **Task Tokens:** These are unique string values representing specific tasks. In a callback task, the service requester sends a task token to a service provider, and the workflow is paused until the exact same token is returned by the service provider. An example is a customer account setup orchestration waiting for finance clearance, which is an asynchronous activity that can take minutes or hours.
+  - **Events:** Used as the communication mechanism to coordinate (choreograph) microservices, often leveraging Amazon EventBridge.
+  - **Task Tokens:** These are unique string values representing specific tasks. In a callback task, the service requester sends a task token to a service provider, and the workflow is paused until the exact same token is returned by the service provider. An example is a customer account setup orchestration waiting for finance clearance, which is an asynchronous activity that can take minutes or hours.
 - Step Functions can be configured to generate a task token and wait for its return (waitForTaskToken).
 - The `HeartbeatSeconds` value sets the timeout period for a task, which can be extended to prevent failures.
 - Task tokens can be carried by various mechanisms, not just EventBridge events (e.g., SQS messages).
@@ -487,7 +486,8 @@ While powerful, implementing Sagas requires careful consideration of the followi
 - **Data Isolation Challenges:** Without traditional transaction locks, you must design carefully to prevent issues like "dirty reads" or "lost updates" between concurrent sagas.
 - **Compensating Failures:** The logic to handle a failure in a compensating transaction itself can be complex, often requiring manual intervention or sophisticated retry mechanisms.
 
-Interview with an Industry Expert
+# Interview with an Industry Expert
+
 Jeremy Daly, CEO, Ampt, AWS Serverless Hero
 
 Jeremy Daly is an AWS Serverless Hero who has been managing the development of complex web and mobile applications for over 25 years. He is currently the CEO of Ampt, a developer productivity platform reinventing how we build applications in the cloud with Infrastructure from Code (IfC). Jeremy writes about serverless and shares thoughts about programming, product management, entrepreneurship, and productivity; he publishes the popular weekly serverless newsletter Off-by-none and hosts the Serverless Chats podcast.
@@ -505,7 +505,7 @@ Serverless implementations let organizations focus on their core business rather
 Most of the fundamental patterns we’ve been using for years are still highly relevant in today’s cloud architectures. The main difference is that many of those patterns have become more explicit, requiring a deeper understanding of how they need to be implemented in distributed cloud systems. The vast majority of serverless primitives are rock solid and for the most part have removed the undifferentiated heavy lifting of managing their complexity. However, configuring the plumbing between these primitives (event mappings, IAM permissions, failover behavior, etc.) falls on the implementer, and with a plethora of options to choose from, this can dramatically affect the success of any given pattern.
 
 We’ve also seen a major resurgence of event-driven applications thanks to serverless and the patterns it enables. I think this is a good thing, but most developers grew up in a synchronous world of request/response. Asynchronous events and eventual consistency are core to distributed workloads, which often adds more cognitive overhead to understanding how modern cloud patterns work.
-Q: As the CEO of Ampt and promoter of IfC that offers a certain level of abstraction, how do you see the future need and awareness of patterns and their use in serverless?
+**Q: As the CEO of Ampt and promoter of IfC that offers a certain level of abstraction, how do you see the future need and awareness of patterns and their use in serverless?**
 
 Awareness of patterns will be just as important in the future as it is today, but the hope is that we can find the right level of abstraction to avoid reinventing the wheel every time we need to implement one. There are hundreds of published patterns and Cloud Development Kit (CDK) constructs available; however, choosing the right one isn’t always straightforward. Even highly experienced architects need to experiment to find the combinations and configurations that best suit their workloads.
 

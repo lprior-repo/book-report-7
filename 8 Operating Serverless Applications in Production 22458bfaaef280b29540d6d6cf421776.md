@@ -45,12 +45,12 @@ Instead of monitoring "everything," focus on "the most critical parts of your ap
 - **Alarms:** A combination of a metric and a threshold. When the metric breaches the threshold, the alarm triggers.
 - **Alerts:** Actions performed when an alarm triggers (e.g., sending messages, creating bug reports).
 - **Alert Properties:** Useful alerts should be:
-    - **Obvious:** Clear impact on user experience/critical path.
-    - **Actionable:** Associated with a clear action.
-    - **Singular:** One alert per distinct issue, avoiding "alert noise."
-    - **Core Serverless Service Metrics:** The document lists key metrics for common serverless services to monitor for scale and performance:
+  - **Obvious:** Clear impact on user experience/critical path.
+  - **Actionable:** Associated with a clear action.
+  - **Singular:** One alert per distinct issue, avoiding "alert noise."
+  - **Core Serverless Service Metrics:** The document lists key metrics for common serverless services to monitor for scale and performance:
 
-Metrics to look out for with Serverless: 
+Metrics to look out for with Serverless:
 
 ## Lambda
 
@@ -132,7 +132,7 @@ Metrics to look out for with Serverless:
 ![image (53).png](static/chapter8/image_(53).png)
 
 - **AWS X-Ray:** AWS's native solution for distributed tracing, integrated with CloudWatch.
-- 
+-
 
 ![image (52).png](static/chapter8/image_(52).png)
 
@@ -140,7 +140,7 @@ Metrics to look out for with Serverless:
 - **Instrumentation:** Configuring microservices and managed services to emit trace data. For managed services, this is often through configuration (e.g., CloudFormation); for Lambda functions, it involves X-Ray SDK, ideally via AWS Powertools.
 - **Annotation:** Key to effective tracing, augmenting default data with "application state and transaction-specific information." Critical for rapid debugging. A "common correlation ID" across services is highly recommended.
 - **Usage Considerations:** X-Ray data is retained for a maximum of 30 days and console searches are limited to 6 hours. Sampling rates should be set based on cost tolerance, with 100% useful for new services and then reduced.
-- 
+-
 
 ![image (51).png](static/chapter8/image_(51).png)
 
@@ -170,6 +170,7 @@ When an issue arises, the core analysis loop, as introduced in *Observability En
 2. **Identify Patterns:** Find outlying data points or events causing deviation and identify patterns pointing to a root cause.
 3. **Validate Hypothesis:** Filter wider observability data (traces, logs, metrics) by the pattern.
 4. **Remediate or Recalibrate:** If confident in the root cause, fix it. If not, restart the loop.
+
 - **Avoid Reactionary Conclusions:** Resist immediate assumptions like "That's always breaking" to ensure proper root cause analysis.
 
 ## Disaster Recovery
@@ -189,7 +190,7 @@ Even with fault tolerance, some single points of failure remain, and external de
 
 # Interview with an Industry Expert
 
-**Yan Cui, AWS Serverless Hero
+**Yan Cui, AWS Serverless Hero**
 Yan is an experienced engineer who has run production workloads at scale on AWS since 2010. He has been an architect and principal engineer in a variety of industries, ranging from banking, ecommerce, and sports streaming to mobile gaming. He has worked extensively with AWS Lambda in production since 2015. Nowadays, Yan splits his time between advancing the state of serverless observability as a Developer Advocate at Lumigo and helping companies around the world adopt serverless as an independent consultant.**
 
 **Yan is also an AWS Serverless Hero and a regular speaker at user groups and conferences internationally. He is the author of [*Production-Ready Serverless*](https://oreil.ly/iV0S5) and coauthor of *Serverless Architectures on AWS*, 2nd edition (Manning). Yan keeps an active blog at [The Burning Monk](https://oreil.ly/Hgdow) and hosts the popular [Real-World Serverless podcast](https://oreil.ly/HW-xL).**
@@ -220,7 +221,7 @@ It’s one reason why you often see Step Functions in order and payment processi
 
 **Q: Through your dedication to contributing a treasure trove of content to the community, you have helped so many engineers and teams get started with serverless. What advice would you give to enterprise teams on their way to operating their first serverless workload in production?**
 It depends on where your team is coming from, if they’re already familiar with building and running microservices and the challenges that come with that, and their level of AWS experience. But for most enterprises, I would recommend having a platform team—not as gatekeepers to decide what gets deployed to production, but as a team of enablers to ease the burden on the feature teams.
-Most enterprises have a myriad of organization-specific requirements, maybe for compliance reasons or maybe down to legacy reasons. Instead of every team needing to find a solution to meet these compliance requirements, it’s much better to invest in a common set of tools, libraries, and approaches that everyone can follow; a golden path, if you will. 
+Most enterprises have a myriad of organization-specific requirements, maybe for compliance reasons or maybe down to legacy reasons. Instead of every team needing to find a solution to meet these compliance requirements, it’s much better to invest in a common set of tools, libraries, and approaches that everyone can follow; a golden path, if you will.
 
 That’s where the platform team comes in, to create and maintain a thin layer of organization-specific guardrails. For example, this platform can include account templates so every AWS account comes with CloudTrail enabled and all of its CloudTrail logs are centralized in an audit account. And it can include service control policies (SCPs) that prevent any tampering with CloudTrail settings and logs. And this platform might include organization-specific CLI tools that can automate many of the day-to-day tasks, such as onboarding a new developer, or initiating a break-glass request to acquire write permissions in production.
 

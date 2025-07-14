@@ -1,6 +1,6 @@
 # 2. Enterprise Readiness For Serverless
 
-Changing mindsets around app development is hard especially if you are used to containers and monolotics apps. 
+Changing mindsets around app development is hard especially if you are used to containers and monolotics apps.
 
 One of the primary differentiators (and mindset changes that you need to make) when building serverless microservices is that you’re not *programming* everything using a particular language to create your microservice. Instead, you are *composing* it using managed services. Programming is part of the process, but not all of it.
 
@@ -13,9 +13,9 @@ Here are some essential areas to focus on to equip your mind to think about the 
 - Creating cost awareness while architecting and building your serverless application
 - Trusting AWS as your cloud provider and using managed services
 
-Alongside the serverless-specific areas, your experience with Agile 
-development practices, microservices, and DevOps principles will be 
-highly beneficial. You will see all these points discussed throughout 
+Alongside the serverless-specific areas, your experience with Agile
+development practices, microservices, and DevOps principles will be
+highly beneficial. You will see all these points discussed throughout
 this book.
 
 Habits to offboard from a legacy mindset
@@ -36,7 +36,7 @@ In an organization riddled with years of technical neglect, team misalignment, S
 
 ![image (70).png](static/chapter2/image_(70).png)
 
-Embrace first principles thinking 
+Embrace first principles thinking
 
 First principles thinking is a thought process that can help you get to the fundamentals of a problem. Rather than focusing on the problem as a whole, you break it into parts to identify the basic elements and causes. Understanding the basics often makes it simpler to find innovative solutions to the business problems your enterprise is trying to solve. In this space, serverless is just a technology enabler.
 
@@ -44,9 +44,9 @@ First principles thinking is a thought process that can help you get to the fund
 
 *Domain-Driven Design: Tackling Complexity in the Heart of Software*
 
-Core concepts: 
+Core concepts:
 
-Bounded Contexts: 
+Bounded Contexts:
 
 A bounded context is a boundary within a domain where a particular domain model applies. It reveals distinct characteristics and interacts with other bounded contexts via well-defined communication mechanisms such as APIs.
 
@@ -62,26 +62,26 @@ Once you’ve mapped out your subdomains and their boundaries, you need people w
 
 ## Team-First
 
-NOTE: The *two-pizza team* rule at Amazon stipulates that a team should
- be small enough to be fed by two pizzas. According to founder Jeff 
-Bezos, smaller teams collaborate better because there are fewer 
-communication links between the members. This in turn allows them to 
-move faster with development and releases. This approach requires 
-removing silos and giving teams end-to-end visibility of their 
-products—that is, an ownership culture.
+> **NOTE:** The *two-pizza team* rule at Amazon stipulates that a team should
+> be small enough to be fed by two pizzas. According to founder Jeff
+> Bezos, smaller teams collaborate better because there are fewer
+> communication links between the members. This in turn allows them to
+> move faster with development and releases. This approach requires
+> removing silos and giving teams end-to-end visibility of their
+> products—that is, an ownership culture.
 
-Amazon’s two-pizza team concept is often brought up in discussions about modern software development teams. But while it’s become common to measure the size of a team based on their appetite for pizza, people often forget that these teams are intentionally kept small because the business domains they are part of are also broken down to a granular level to give each team a singular purpose, focus, and identity. 
+Amazon’s two-pizza team concept is often brought up in discussions about modern software development teams. But while it’s become common to measure the size of a team based on their appetite for pizza, people often forget that these teams are intentionally kept small because the business domains they are part of are also broken down to a granular level to give each team a singular purpose, focus, and identity.
 
 ![image (72).png](static/chapter2/image_(72).png)
 
-Team Topologies introduces new thinking around effective team structures for enterprise software delivery. It discusses four team types: stream-aligned, 
+Team Topologies introduces new thinking around effective team structures for enterprise software delivery. It discusses four team types: stream-aligned,
 enabling, platform, and complicated subsystem teams.
 
 A common misconception in the industry is that serverless technology does not require some of the roles and responsibilities an enabling team fulfills. This is not entirely true, even though serverless eliminates most platform and infrastructure heavy lifting. Your organization requires engineers with the expertise to set up guardrails and processes, such as security principles, well-architected service audit processes, etc. Unlike the siloed team structure, the key difference here is that enabling teams don’t carry out the work on behalf of the stream-aligned teams; instead, they empower others to perform better with a reduced cognitive load and work efficiently to increase velocity and flow.
 
 ## API First
 
-When such a team owns and operates its single-purpose product, it becomes the guardian responsible for protecting its contextual boundary by employing adequate technical and communication measures. 
+When such a team owns and operates its single-purpose product, it becomes the guardian responsible for protecting its contextual boundary by employing adequate technical and communication measures.
 
 Once you have identified and marked the boundaries of each subdomain, it becomes easier to answer the following questions:
 
@@ -90,17 +90,15 @@ Once you have identified and marked the boundaries of each subdomain, it becomes
 - How can you grant access to external systems?
 - What information can be transacted across the border?
 
-An *API-first* approach is about identifying, implementing, and 
-publishing the interfaces to the system you are building. The API 
-becomes a first-class citizen and plays a significant role in the 
+An *API-first* approach is about identifying, implementing, and
+publishing the interfaces to the system you are building. The API
+becomes a first-class citizen and plays a significant role in the
 tactical design and evolution of the application.
 
 ![image (74).png](static/chapter2/image_(74).png)
 
-TIP: 
-
-API governance and discoverability are the two most common issues enterprises face when several teams own  and operate APIs. API portals often help discover and consume APIs in a *self-service* model. However, if you are just starting out with your API-first strategy and initial APIs, don’t get overburdened with these different processes, as they can be worked on in parallel as you create more APIs 
-and gain experience.
+> **TIP:** API governance and discoverability are the two most common issues enterprises face when several teams own  and operate APIs. API portals often help discover and consume APIs in a *self-service* model. However, if you are just starting out with your API-first strategy and initial APIs, don't get overburdened with these different processes, as they can be worked on in parallel as you create more APIs
+> and gain experience.
 
 ## Microservice First
 
@@ -114,7 +112,7 @@ A microservice should be owned and operated by one team. Never have two teams sh
 
 Asynchronous communication (Async) and event-driven architecture (EDA) are terms sometimes trouble traditional engineering minds that are accustomed to developing monolithic applications using legacy practices and on-premises technologies.
 
-Asynchronicity, eventual consistency, and event-driven communication are the driving forces behind the managed services that power serverless. 
+Asynchronicity, eventual consistency, and event-driven communication are the driving forces behind the managed services that power serverless.
 
 ## Note
 
@@ -122,28 +120,28 @@ An *event*, in general, is something that has already happened. A *domain event*
 
 ![image (76).png](static/chapter2/image_(76).png)
 
-**Serverless First:** 
+**Serverless First:**
 
-*Serverless-first* is a way of thinking that views serverless as 
-the best-fit technology choice to build and operate business 
+*Serverless-first* is a way of thinking that views serverless as
+the best-fit technology choice to build and operate business
 applications to deliver value faster.
 
 *The Value Flywheel Effect: Power the Future and Accelerate Your Organization to the Modern Cloud* (IT Revolution Press), David Anderson sums it up nicely:
 
 *It’s about doing the simplest thing to deliver value by removing the unnecessary baggage. Today serverless-first is the perfect strategy to achieve this; it’s a quiet revolution happening right in front of us. A serverless-first mindset enables teams to focus on business outcomes and business impact, not keeping the lights on.*
 
-It’s about driving value for your business in this modern, fast-paced, 
+It’s about driving value for your business in this modern, fast-paced,
 and highly competitive world. Organizations are constantly iterating and
  finding ways to reach customers and bring value to the business quicker
- than before. As an engineer, architect, or CTO, you are part of the 
-fast-spinning value flywheel. Hence, you must learn to leave the heavy 
-engineering to the managed cloud service providers, such as AWS, and 
-evolve your business solutions on top with a pragmatic and practical 
+ than before. As an engineer, architect, or CTO, you are part of the
+fast-spinning value flywheel. Hence, you must learn to leave the heavy
+engineering to the managed cloud service providers, such as AWS, and
+evolve your business solutions on top with a pragmatic and practical
 mindset. *Serverless-first* as a principle and strategy becomes part of that value-generation process.
 
 ## Assessing Workloads for Serverless Suitability
 
-Many demo’s are available but in reality enterprise solutions have to evaluate many fundamental questions. Serverless is a solution to many problems but isn’t for all domains. 
+Many demo’s are available but in reality enterprise solutions have to evaluate many fundamental questions. Serverless is a solution to many problems but isn’t for all domains.
 
 Tip
 
@@ -151,29 +149,29 @@ When you assess the suitability of serverless technology with serverless-first t
 
 ## Understanding the Performance Measures of Distributed Serverless Architecture
 
-Unlike in legacy systems, where performance is mostly measured by the speed of an operation as one big unit, in modern serverless applications, there isn’t a simple yardstick to measure performance. Due to having the work being split amoung many different pieces it’s harder to evaluate each piece. Here are some ways to do that: 
+Unlike in legacy systems, where performance is mostly measured by the speed of an operation as one big unit, in modern serverless applications, there isn’t a simple yardstick to measure performance. Due to having the work being split amoung many different pieces it’s harder to evaluate each piece. Here are some ways to do that:
 
 - **End‑to‑End Efficiency**
-    - Measures latency across the entire chain of services—crucial when customer satisfaction hinges on rapid responses (e.g., fetching product prices for a storefront).
-    - Encourages thinking in terms of the complete user journey rather than isolated calls.
+  - Measures latency across the entire chain of services—crucial when customer satisfaction hinges on rapid responses (e.g., fetching product prices for a storefront).
+  - Encourages thinking in terms of the complete user journey rather than isolated calls.
 - **Part Efficiency**
-    - Focuses on individual services (for instance, the order‑submission API).
-    - Recognizes that behind‑the‑scenes tasks (like order processing) may tolerate higher latency without compromising the customer experience.
+  - Focuses on individual services (for instance, the order‑submission API).
+  - Recognizes that behind‑the‑scenes tasks (like order processing) may tolerate higher latency without compromising the customer experience.
 - **Deliberate Efficiency and Inefficiency**
-    - Introduces strategic throttling, where premium users’ requests (such as image uploads) are processed faster than those of anonymous visitors.
-    - Aligns performance with business priorities.
+  - Introduces strategic throttling, where premium users’ requests (such as image uploads) are processed faster than those of anonymous visitors.
+  - Aligns performance with business priorities.
 - **Expected Efficiency**
-    - Accounts for asynchronous or deferred tasks, where timely delivery of an event matters more than immediate processing.
-    - Supports event‑driven designs that balance speed and resource utilization.
+  - Accounts for asynchronous or deferred tasks, where timely delivery of an event matters more than immediate processing.
+  - Supports event‑driven designs that balance speed and resource utilization.
 - **Contractual Efficiency**
-    - Ties performance to SLAs or session validity (e.g., ticket‑booking windows).
-    - Stresses the importance of meeting legally or commercially mandated time constraints.
+  - Ties performance to SLAs or session validity (e.g., ticket‑booking windows).
+  - Stresses the importance of meeting legally or commercially mandated time constraints.
 
 ## **Non‑ideal Serverless Use Cases**
 
 - **Compute‑heavy, complex apps:** High‑performance computing (HPC) tasks (e.g., structural analysis) need specialized EC2 instances—Lambda can’t match their raw power. Think needing 500$ an hour EC2’s for instance.
 - **Long‑running jobs:** Batch processes exceeding Lambda’s timeout require rearchitecting into smaller ETL chunks or another platform.
-    - TIP: Use ECS or Fargate for some of these!
+  - > **TIP:** Use ECS or Fargate for some of these!
 - **Low‑level computing:** Code needing direct OS, processor, or network access won’t fit in a managed function.
 - **Ultrafast, consistent sub‑10 ms responses:** Cold starts and scaling limits make serverless a gamble for guaranteed <10 ms at 100% traffic.
 - **Durable, proprietary‑protocol connections:** Maintaining port‑level sessions favors containers or hybrid models over ephemeral functions. I need to use port 32189 (made up instance)
@@ -188,18 +186,18 @@ Unlike in legacy systems, where performance is mostly measured by the speed of a
 - **High CloudWatch usage:** Optimize log retention, stream metrics to third‑party tools, and reduce API calls to cut monitoring expenses.
 
 > Tip: Use managed-service data lifecycle features (automatic cleanup, tiered storage) for seamless, cost‑effective hygiene—no risky, manual purges needed.
-> 
+>
 
-Most of the rest of the chapter goes into Serverless Adoption for the Enterprise, growing serverless teams and lock Well it’s a good read, I’m not focused on bringing this across the enterprise and will lightly touch 
+Most of the rest of the chapter goes into Serverless Adoption for the Enterprise, growing serverless teams and lock Well it’s a good read, I’m not focused on bringing this across the enterprise and will lightly touch
 
 ## Discussion About Lock In
 
-1. Consider the Cloud Provider (AWS) as Your Partner, Not a vendor. 
+1. Consider the Cloud Provider (AWS) as Your Partner, Not a vendor.
 
 Consequently, you form a working relationship with your cloud provider to identify the most efficient and cost-effective services for your business and the optimal operational configurations. Furthermore, when your team prepares for special events such as new product launches, movie trailer releases, or festive sale events such as Black Friday, you seek your cloud provider’s expertise and work with their infrastructure event management (IEM) team to get your organization through the occasion smoothly.
 
-1. Gregor Hoppe has a ton of good material on this and I recommend you read more into that. 
-    1. https://www.youtube.com/watch?v=DVxNbNXcEeM
+1. Gregor Hoppe has a ton of good material on this and I recommend you read more into that.
+    1. <https://www.youtube.com/watch?v=DVxNbNXcEeM>
 2. Follow standards (Use OpenAPI standards, Use Open Source Software)
 
 Warning
@@ -208,15 +206,15 @@ To operate open source software for the needs of a globally distributed modern c
 
 ## Migration to Serverless
 
-Another section I will lightly cover: 
+Another section I will lightly cover:
 
 LIfting and shift: Probably not the best idea
 
-All at once; Usually a massive failure but companies have done it. 
+All at once; Usually a massive failure but companies have done it.
 
-Use a phased Migration: 
+Use a phased Migration:
 
-Pick a few and apply the strangler pattern to them., Take the learnings and keep going. 
+Pick a few and apply the strangler pattern to them., Take the learnings and keep going.
 
 ![image (77) (1).png](static/chapter2/image_(77)_(1).png)
 
@@ -225,36 +223,36 @@ Pick a few and apply the strangler pattern to them., Take the learnings and keep
 ## Growing Serverless Teams
 
 - Need a conducive Team environment
-    - Freedom to take risks to build self-belief among the engineers
-    - Encouragement to experiment with ideas to foster product inventions
-    - Teams’ involvement in technical and operational decision making to build trust and promote motivation
-    - Autonomy to self-govern, removing bureaucracy and allowing increased team velocity
-    - Nurturing an ownership culture to create a sense of belonging that encourages responsibility
-    - Sufficient learning opportunities to keep engineers in the know about advances in technology
+  - Freedom to take risks to build self-belief among the engineers
+  - Encouragement to experiment with ideas to foster product inventions
+  - Teams’ involvement in technical and operational decision making to build trust and promote motivation
+  - Autonomy to self-govern, removing bureaucracy and allowing increased team velocity
+  - Nurturing an ownership culture to create a sense of belonging that encourages responsibility
+  - Sufficient learning opportunities to keep engineers in the know about advances in technology
 - Finding a Garder:
-    - Someone who has some background and able to help the team as they move forward and grow
-    - Similarly, the engineers who are part of an organization’s serverless ecosystem need a constant supply of knowledge to upskill and keep up with the evolving technology landscape. New services, features, tools, frameworks, patterns, and capabilities are announced almost daily, and keeping pace with the speed of change can be challenging for a new team of serverless engineers. Hence, the necessary measures must be identified and implemented to swiftly assess and address these needs from the early days of serverless adoption.
+  - Someone who has some background and able to help the team as they move forward and grow
+  - Similarly, the engineers who are part of an organization’s serverless ecosystem need a constant supply of knowledge to upskill and keep up with the evolving technology landscape. New services, features, tools, frameworks, patterns, and capabilities are announced almost daily, and keeping pace with the speed of change can be challenging for a new team of serverless engineers. Hence, the necessary measures must be identified and implemented to swiftly assess and address these needs from the early days of serverless adoption.
 - Be willing to upskill in Mass
-    
+
     ![image (79).png](static/chapter2/image_(79).png)
-    
-    - 
+
+  -
 - Find the Passionate Pilot Engineers
-    - Let them be the torch bearers and act as catalysts to spearhead serverless movement
-    - They MUST possess a positive attitude and willingness to take on challenges.
+  - Let them be the torch bearers and act as catalysts to spearhead serverless movement
+  - They MUST possess a positive attitude and willingness to take on challenges.
 - Celebrate the Growth of Your Team
-    - Cultivating a growth-promoting enterprise environment for serverless is not a solo effort. It involves several teams—engineering, products, people partners, recruitment, etc.—working toward a unified goal.
-    - Show to stakeholders how serverless has helped delivery value and promote better ways of working.
+  - Cultivating a growth-promoting enterprise environment for serverless is not a solo effort. It involves several teams—engineering, products, people partners, recruitment, etc.—working toward a unified goal.
+  - Show to stakeholders how serverless has helped delivery value and promote better ways of working.
 - Build teams to have the following characteristerics
-    - Form a small group that can be fed with two pizzas
-    - Understand their business domain and interact with stakeholders
-    - Are responsible for their software products
-    - Are quality-conscious and automate their tests
-    - Can define and implement their deployment pipelines
-    - Understand security and employ threat prevention measures
-    - Implement good observability and engage in proactive monitoring
-    - Take part in architectural discussions and implement solution designs
-    - Are not afraid to deploy to production on a Friday afternoon
+  - Form a small group that can be fed with two pizzas
+  - Understand their business domain and interact with stakeholders
+  - Are responsible for their software products
+  - Are quality-conscious and automate their tests
+  - Can define and implement their deployment pipelines
+  - Understand security and employ threat prevention measures
+  - Implement good observability and engage in proactive monitoring
+  - Take part in architectural discussions and implement solution designs
+  - Are not afraid to deploy to production on a Friday afternoon
 
 ![image (80).png](static/chapter2/image_(80).png)
 
@@ -264,32 +262,23 @@ A serverless engineer is a software engineer who is innovative and capable of bu
 
 Here are some common questions people ask about serverless teams, and some analysis about the accuracy of the underlying conceptions and misconceptions:
 
-Is a serverless team a backend team?
+**Is a serverless team a backend team?**
 
-```
-This is not always true. In a commercial product development organization, you’ll see teams that focus on domain logic implementation as microservices, teams that own the end-to-end flow of user-facing features, teams that focus mainly on the user experience and aesthetics, and teams that handle data processing and utility services. All these teams could use serverless technology in part or in full.
+This is not always true. In a commercial product development organization, you'll see teams that focus on domain logic implementation as microservices, teams that own the end-to-end flow of user-facing features, teams that focus mainly on the user experience and aesthetics, and teams that handle data processing and utility services. All these teams could use serverless technology in part or in full.
 
-```
+**Is a full-stack team ideal for serverless development?**
 
-Is a full-stack team ideal for serverless development?
-
-```
 A stream-aligned engineering team that owns a feature or a product is responsible for its end-to-end flow, including both frontend and backend functionality. Such a team functions with engineers capable of working on any part of the application stack and avoids the frontend and backend silos. Serverless thrives in environments where knowledge is shared and there is a greater collaboration.
 
-```
+**Is serverless technology only for developing microservices?**
 
-Is serverless technology only for developing microservices?
-
-```
 Modern applications have several parts, and many of these parts can benefit from serverless. The backend microservices that implement business logic, the Backend for Frontend (BFF) layers that use GraphQL federation, and the frontend user experience implementations that require server-side rendering, data processing pipelines, etc., can all use serverless technologies.
 
-```
+# Interview with an Industry Expert
 
-Interview with David Anderson: 
+**David Anderson, Architect, G-P Globalization Partners**
 
-David Anderson, Architect, G-P Globalization Partners
-
-David is a technical leader who enjoys writing and speaking about the leading edge of technology. After starting out as a software engineer in leading telecom companies (including Three, Nokia, and Ericsson), David moved to Liberty Mutual in 2007, where he continued to drive technology change and cloud adoption. As a practicing architect with G-P, he continues to empower and enable peers with a focus on serverless-first, well-architected principles, and engineering excellence, all to enable digital transformation, AI, improved time to value, and high-performing teams. His book The Value Flywheel Effect, published by IT Revolution in fall 2022, continues to inspire modernization journeys. David is based in Belfast, writes on The Serverless Edge, is the lead organizer for ServerlessDays Belfast, and is a member of the Wardley Mapping community. 
+David is a technical leader who enjoys writing and speaking about the leading edge of technology. After starting out as a software engineer in leading telecom companies (including Three, Nokia, and Ericsson), David moved to Liberty Mutual in 2007, where he continued to drive technology change and cloud adoption. As a practicing architect with G-P, he continues to empower and enable peers with a focus on serverless-first, well-architected principles, and engineering excellence, all to enable digital transformation, AI, improved time to value, and high-performing teams. His book The Value Flywheel Effect, published by IT Revolution in fall 2022, continues to inspire modernization journeys. David is based in Belfast, writes on The Serverless Edge, is the lead organizer for ServerlessDays Belfast, and is a member of the Wardley Mapping community.
 
 **Q: What is a serverless mindset, and why is it essential to serverless adoption?**
 
@@ -305,39 +294,27 @@ The serverless mindset embraces evolutionary architecture and uses cloud provide
 
 By the way, you will notice I didn’t mention functions. If you think serverless is functions, you need to broaden your thinking. **Serverless is “access to capability when needed”—but we still don’t have a good name for it.**
 
-Q: You played a pivotal role in Liberty Mutual’s adoption of serverless. The term serverless-first became a mantra from those days. What does it mean to an organization thinking of adopting serverless?
+**Q: You played a pivotal role in Liberty Mutual's adoption of serverless. The term serverless-first became a mantra from those days. What does it mean to an organization thinking of adopting serverless?**
 
 Following the principle of “building blocks, not frameworks,” it’s essential that technology leaders understand that their outcomes drive the company forward. Technology is not a cost center; it’s an engine for business growth. There was a phase when companies would say, “We are not an X company; we are a technology company that sells X.” Liberty Mutual is an insurance company with a deep understanding of technology—this happens when you make a long-term bet on “technology as a differentiator.” Policyholders don’t care how cool the event logger for the web app is or that the backend is Lambda; they just need help quickly. The journey at Liberty Mutual was awesome, and there are a lot of nice articles if you google “Liberty Mutual serverless.”
 
 Specifically, for an organization-wide adoption of serverless, there are several key areas:
 
-Infrastructure
+**Infrastructure**
 
-```
-There is a significant evolution required for the infrastructure teams. We are not building a wrapper around the cloud, and the infrastructure team is not the conduit for everything external—this is not sustainable. Don’t wrap application engineers in cotton wool; clear guardrails will enable them to move quickly. Serverless allows application teams to do some infrastructure as code, and the infrastructure teams focus on management and governance of the cloud. The cloud provider is now one of your platform teams (you have several).
+There is a significant evolution required for the infrastructure teams. We are not building a wrapper around the cloud, and the infrastructure team is not the conduit for everything external—this is not sustainable. Don't wrap application engineers in cotton wool; clear guardrails will enable them to move quickly. Serverless allows application teams to do some infrastructure as code, and the infrastructure teams focus on management and governance of the cloud. The cloud provider is now one of your platform teams (you have several).
 
-```
+**Security**
 
-Security
-
-```
 Security [experts] must think in a very purist way about the cloud. The traditional approach of building a wall around the data center does not work for the cloud. The principle of least privilege is critical, and the application engineers now become the front line of security. We need to train our engineers in security (teach them the threat model) and partner with them. Serverless may be a challenge for some of the existing security tools, so we need to think differently.
 
-```
+**IT and product leadership**
 
-IT and product leadership
+Courage is required, as serverless is a paradigm shift. The technology and techniques that IT leaders used when they were engineers (or executing projects) have often changed dramatically. Some leaders will say, "When I was an engineer, we did this." That is correct sometimes; other times, it is the opposite of what needs to happen in a serverless environment. IT leaders must learn about the serverless mindset and trust their technology leaders. It's difficult for busy executives and managers to carve out time to learn about new technology, but it is critical for success.
 
-```
-Courage is required, as serverless is a paradigm shift. The technology and techniques that IT leaders used when they were engineers (or executing projects) have often changed dramatically. Some leaders will say, “When I was an engineer, we did this.” That is correct sometimes; other times, it is the opposite of what needs to happen in a serverless environment. IT leaders must learn about the serverless mindset and trust their technology leaders. It’s difficult for busy executives and managers to carve out time to learn about new technology, but it is critical for success.
+**Engineering capability**
 
-```
-
-Engineering capability
-
-```
-We must ensure the engineers and architects are comfortable with the new technology and techniques, maybe through cloud certification, workshops and labs, or even external speakers and internal conferences. Regardless, bring your engineers on the journey and invest in them. You won’t hire a new cohort of serverless engineers; bring your engineers today through the journey, and they won’t let you down.
-
-```
+We must ensure the engineers and architects are comfortable with the new technology and techniques, maybe through cloud certification, workshops and labs, or even external speakers and internal conferences. Regardless, bring your engineers on the journey and invest in them. You won't hire a new cohort of serverless engineers; bring your engineers today through the journey, and they won't let you down.
 
 One of the critical blockers against serverless is “we can’t get buy-in.” Pitching a “let’s rebuild everything in this new tech” effort is challenging. It’s better to focus on key problem areas and show the value of serverless through results: “We built this solution in 50% of the time,” “We’ve reduced running costs by 80%,” or “We can now scale to meet our demand, and our costs are lower.” Start with showing the results and demonstrate that a serverless mindset was the technique that made it possible—show, don’t tell.
 
@@ -347,41 +324,29 @@ Finally, it’s critical to value tech leadership. The cloud is changing quickly
 
 When teams take more responsibility, we must ensure they are executing well. Looking through the lens of the three engineering excellence areas, we can measure high performance through:
 
-Mastery
+**Mastery**
 
-```
-The critical measure here uses the Well-Architected Framework (from AWS, but it equally applies to the version from Google or Azure). I like to use a process called SCORP (Security, Cost, Operational Excellence, Reliability, Performance—it’s detailed in my book) that enables teams to gather metrics for these five pillars and publish them in a single dashboard (a wiki page or whiteboard). This is updated and reviewed every sprint. Well-architected becomes front of mind, not just an audit-type activity.
+The critical measure here uses the Well-Architected Framework (from AWS, but it equally applies to the version from Google or Azure). I like to use a process called SCORP (Security, Cost, Operational Excellence, Reliability, Performance—it's detailed in my book) that enables teams to gather metrics for these five pillars and publish them in a single dashboard (a wiki page or whiteboard). This is updated and reviewed every sprint. Well-architected becomes front of mind, not just an audit-type activity.
 
 Speed of delivery is also essential, so we look at the four key DORA metrics. I dislike being too formal about these, but deployment frequency is a great leading indicator.
 
-```
+**Autonomy**
 
-Autonomy
+I'm a huge fan of Team Topologies, and there are many measures for fast flow around team metrics. What is the team type, team size, work prioritization, and effectiveness of process? There is a sociotechnical element to the serverless organization. You have to get the technology environment and system design right. You also have to get the team dynamics right to ensure the people can interact with the technology effectively.
 
-```
-I’m a huge fan of Team Topologies, and there are many measures for fast flow around team metrics. What is the team type, team size, work prioritization, and effectiveness of process? There is a sociotechnical element to the serverless organization. You have to get the technology environment and system design right. You also have to get the team dynamics right to ensure the people can interact with the technology effectively.
+**Purpose**
 
-```
-
-Purpose
-
-```
 This is the easiest one, but the one that is often most ignored. Does the team own a business KPI? (It could also be two teams contributing to the same KPI.) The best measure is to ask an engineer about the business KPI—is the team aware of what it is and how they are changing it?
-
-```
 
 There are some antipatterns or smells that I often look out for:
 
-```
-The team’s purpose is “looking after technology X”—“We are the Kafka team.”
+The team's purpose is "looking after technology X"—"We are the Kafka team."
 
 The stack is not ephemeral. If we deleted that stack now, could you recover it quickly?
 
-You’re locked into a process, and a QA/infrastructure/security team is slowing down delivery.
+You're locked into a process, and a QA/infrastructure/security team is slowing down delivery.
 
-What is the Time to Try?
-
-```
+**What is the Time to Try?**
 
 Time to Try is a great metric. Let’s imagine a new cloud service announcement at noon on a Monday. How long will it take for an engineer in a regular team to access the service (in a compliant manner) with a view to using it in production? Many traditional organizations will give estimates from weeks to months (we need to make security updates, add to our internal portal, write some Terraform, train our platform team, etc.). My expectation would be 24 hours, for a security review and an update to the cloud policies to add the service to the allow list.
 

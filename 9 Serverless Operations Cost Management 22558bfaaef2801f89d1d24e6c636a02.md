@@ -69,6 +69,7 @@
 2. Identify cost-generating areas in the architecture.
 3. Extract relevant costs from AWS service pricing pages.
 4. Use tools like spreadsheets, FinOps platforms, or AWS Pricing Calculator.
+
 - Consult AWS solution architects for insights.
 - **Tiered Pricing:** As consumption increases, the "cost per resource will decrease" for certain services (e.g., CloudWatch metrics, S3 Standard storage). This should be considered in estimates.
 - **AWS Free Tier:** "Indispensable tool" for new applications and experimentation. Offers include "Free trials," "12 months free," and "Always free" allocations (e.g., 1 million free Lambda requests/month, 25 GB free DynamoDB storage).
@@ -81,16 +82,18 @@
 ![image (68).png](static/chapter9/image_(68).png)
 
 - **Strategies for Cost Reduction:**
-    - Continuously monitor application costs for anomalies.
-    - Architect for cost (e.g., S3 object lifecycle, DynamoDB on-demand, express Step Functions).
-    - Minimize Lambda functions where alternatives (direct integrations) exist. Do not monolithize functions for this purpose.
-    - Batch events and requests to reduce API call costs.
-    - Use caching where "viable and cost-efficient."
-    - Deploy operational resources (CloudTrail, CloudWatch alarms) "only where needed," primarily in production.
-    - Architect sustainably (correlates with cost efficiency).
-    - Consider savings plans for predictable compute usage.
+  - Continuously monitor application costs for anomalies.
+  - Architect for cost (e.g., S3 object lifecycle, DynamoDB on-demand, express Step Functions).
+  - Minimize Lambda functions where alternatives (direct integrations) exist. Do not monolithize functions for this purpose.
+  - Batch events and requests to reduce API call costs.
+  - Use caching where "viable and cost-efficient."
+  - Deploy operational resources (CloudTrail, CloudWatch alarms) "only where needed," primarily in production.
+  - Architect sustainably (correlates with cost efficiency).
+  - Consider savings plans for predictable compute usage.
 
-Ben Ellerby, Founder, aleios, AWS Serverless Hero
+# Interview with an Industry Expert
+
+**Ben Ellerby, Founder, aleios, AWS Serverless Hero**
 
 Ben Ellerby is the founder of aleios and a dedicated member of the serverless community. In 2020 AWS named him a Serverless Hero, recognizing his outstanding work and innovation in cloud and serverless. He is the editor of Serverless Transformation: a blog, newsletter, and podcast that share tools, techniques, and use cases for all things serverless. He co-organizes the Serverless User Group in London, is part of the ServerlessDays London organizing team, and regularly speaks about serverless around the world. At aleios, Ben helps start-ups disrupt and large organizations remain competitive by building with serverless.
 

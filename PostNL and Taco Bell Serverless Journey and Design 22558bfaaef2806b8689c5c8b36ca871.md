@@ -21,7 +21,7 @@ Serverless was deemed a perfect fit for PostNL's highly seasonal and high-volume
 
 1. **Elastic Pricing:** The "pay per use" model (e.g., Lambda, EventBridge, SQS, Step Functions) ensures that "our systems hardly incur any cost during off-peak hours," making it significantly more cost-effective than statically provisioned capacity for fluctuating demand.
 
-Typical usage pattern: 
+Typical usage pattern:
 
 ![image (69).png](static/postnl/image_(69).png)
 
@@ -100,9 +100,8 @@ The strategy started conservatively, "dipping its toes into serverless for a few
 ![image (95).png](static/postnl/image_(95).png)
 
 - **Menu Middleware (Hybrid to Fully Serverless):** Started with traditional RDS MySQL and ETL tools but successfully ported menu ingestion to a monolithic .NET Lambda function, which scaled effectively. The system evolved to be fully serverless over several years, supporting 12+ integration channels and tens of thousands of menus daily.
-    
+
     ![image (96).png](static/postnl/image_(96).png)
-    
 
 ## Order Middleware
 
@@ -114,16 +113,16 @@ The strategy started conservatively, "dipping its toes into serverless for a few
 - Middy Middleware and Lambda Powertools for TypeScript for cross-cutting concerns such as secrets/parameter caching, JSON structured logging
 - Lumigo and CloudWatch for observability
 - Step Functions for orchestration and EventBridge for choreographing events:
-    - Express Step Functions workflows are nested in standard workflows for processing short, synchronous flows.
-    - When a driver is close to the store, an event is sent to EventBridge so that the order can be released (using the callback task token pattern in Step Functions, discussed in “Distributed Orchestration” in Chapter 5) and the food can be made.
+  - Express Step Functions workflows are nested in standard workflows for processing short, synchronous flows.
+  - When a driver is close to the store, an event is sent to EventBridge so that the order can be released (using the callback task token pattern in Step Functions, discussed in “Distributed Orchestration” in Chapter 5) and the food can be made.
 - Express Step Functions workflows are nested in standard workflows for processing short, synchronous flows.
 - When a driver is close to the store, an event is sent to EventBridge so that the order can be released (using the callback task token pattern in Step Functions, discussed in “Distributed Orchestration” in Chapter 5) and the food can be made.
 - DynamoDB for order info and task token persistence
 - Caching with content delivery network (CDN) and Lambda function memory
 - Lambda functions written in TypeScript for compute, using a simplified hexagonal pattern (see Chapter 3):
-    - **Core domain logic is encapsulated for easy unit testing.**
-    - **Port/adapter logic is built into the Lambda functions.**
-    - **Integration testing is done in live AWS environments.**
+  - **Core domain logic is encapsulated for easy unit testing.**
+  - **Port/adapter logic is built into the Lambda functions.**
+  - **Integration testing is done in live AWS environments.**
 - Core domain logic is encapsulated for easy unit testing.
 - Port/adapter logic is built into the Lambda functions.
 - Integration testing is done in live AWS environments.

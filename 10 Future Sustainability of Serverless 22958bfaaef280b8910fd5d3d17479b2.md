@@ -28,10 +28,10 @@ The serverless ecosystem is constantly evolving, driven by the ethos of less is 
 - **Resurgence, Not Novelty**: EDA is not new, but its full potential was somewhat masked by how we built legacy monolithic applications.
 - **Central to Serverless**: The promise of event-driven architecture is central to serverless development. Its presence will be stronger in the future.
 - **Key Drivers of EDA's Renaissance**:
-    - **Data Economy**: EDA facilitates federated data ownership with self-service data publishing and consumption by using domain events to share data and set checkpoints to audit your data and governance roles and responsibilities.
-    - **Acceptance of Eventual Consistency**: The shift to smaller, distributed, loosely coupled microservices makes it acceptable to maintain eventual consistency, a paradigm shift from legacy systems.
-    - **Fueling Functionless and Low-Code**: Many event-driven service integrations now follow a functionless or low-code pattern, reducing the need for integration code.
-    - **Connecting Diverse Systems**: EDA provides a common thread for modern applications operating on multiple technology stacks, supported by emerging standards like CloudEvents and AsyncAPI.
+  - **Data Economy**: EDA facilitates federated data ownership with self-service data publishing and consumption by using domain events to share data and set checkpoints to audit your data and governance roles and responsibilities.
+  - **Acceptance of Eventual Consistency**: The shift to smaller, distributed, loosely coupled microservices makes it acceptable to maintain eventual consistency, a paradigm shift from legacy systems.
+  - **Fueling Functionless and Low-Code**: Many event-driven service integrations now follow a functionless or low-code pattern, reducing the need for integration code.
+  - **Connecting Diverse Systems**: EDA provides a common thread for modern applications operating on multiple technology stacks, supported by emerging standards like CloudEvents and AsyncAPI.
 
 ## Multicloud Orchestration
 
@@ -44,9 +44,9 @@ The serverless ecosystem is constantly evolving, driven by the ethos of less is 
 - **Abstraction of Cloud Development**: IfC frameworks select, create, configure, deploy, and manage the cloud resources for your application by abstracting explicit cloud resource references from business logic.
 - **Motivation**: Advantages include speed of development, cloud-agnostic deployment, code colocation, and a low cognitive load on engineers. It can be beneficial for experimenting or prototyping a complex system or quickly deploying utility services.
 - **Drawbacks and Industry Division**: IfC has not gained wide adoption, with criticisms including:
-    - **Debugging Complexity**: High abstraction can make investigating problems in a production environment much more complex.
-    - **Loss of Control**: It removes critical infrastructure choices, which are typically driven by the business requirements and logic, making it unsuitable for core business domains.
-    - **Lack of Transferable Skills**: Limited exposure to underlying infrastructure can lead to a steep learning curve when engineers change roles.
+  - **Debugging Complexity**: High abstraction can make investigating problems in a production environment much more complex.
+  - **Loss of Control**: It removes critical infrastructure choices, which are typically driven by the business requirements and logic, making it unsuitable for core business domains.
+  - **Lack of Transferable Skills**: Limited exposure to underlying infrastructure can lead to a steep learning curve when engineers change roles.
 - **Related Concept**: **Observability as Code (OaC)** is a new initiative to incorporate tracing and monitoring capabilities... as part of the implementation, defining alerts... and log queries as code.
 
 ## The Evolution and Influence of Generative AI (GenAI)
@@ -80,16 +80,16 @@ Successfully adopting serverless is only the first step; maintaining its momentu
 
 - **Beyond Legacy**: Refactoring in serverless is a process of continuous improvement or continuous renewal of your applications.
 - **Serverless-Specific Refactoring**: This includes rewiring services and refactoring at granular levels, such as:
-    - Lambda function code
-    - Infrastructure code
-    - Performance improvement
-    - Cost reduction
-    - Sustainability enhancement
-    - Consuming new features/managed services
-    - Introducing well-architected principles
+  - Lambda function code
+  - Infrastructure code
+  - Performance improvement
+  - Cost reduction
+  - Sustainability enhancement
+  - Consuming new features/managed services
+  - Introducing well-architected principles
 - **Justifying Refactoring to Business**:
-    - **Translate Technical to Business Goals**: Convert technical needs into business goals that are understandable to everyone and share improvement metrics.
-    - **Make it Recurring**: Integrate refactoring as a regular part of the development process, allocating dedicated time every quarter for your team’s refactoring needs.
+  - **Translate Technical to Business Goals**: Convert technical needs into business goals that are understandable to everyone and share improvement metrics.
+  - **Make it Recurring**: Integrate refactoring as a regular part of the development process, allocating dedicated time every quarter for your team’s refactoring needs.
 - **Importance**: Continuous refactoring is essential to your serverless development cycle to keep up with the evolving ecosystem.
 
 ---
@@ -112,27 +112,27 @@ Sustaining serverless momentum requires a strong emphasis on community, collabor
 ## Joining a Serverless Community
 
 - **Value of Communities**:
-    - **Knowledge Hubs**: Communities are vibrant hubs of knowledge where individuals collaborate to exchange knowledge, push boundaries, and learn from their collective experiences.
-    - **Sense of Belonging**: They foster a sense of belonging and collective identity, providing social and professional support networks.
-    - **Creativity and Collaboration**: Communities encourage the sharing of ideas that may not emerge in solitude.
-    - **Advocacy and Shaping Services**: Community input often drives organizations... to make necessary adjustments or develop innovative services.
-    - **Democratization of Knowledge**: Online communities remove barriers of distance and income, offering cutting-edge information and resources to anyone with internet access.
+  - **Knowledge Hubs**: Communities are vibrant hubs of knowledge where individuals collaborate to exchange knowledge, push boundaries, and learn from their collective experiences.
+  - **Sense of Belonging**: They foster a sense of belonging and collective identity, providing social and professional support networks.
+  - **Creativity and Collaboration**: Communities encourage the sharing of ideas that may not emerge in solitude.
+  - **Advocacy and Shaping Services**: Community input often drives organizations... to make necessary adjustments or develop innovative services.
+  - **Democratization of Knowledge**: Online communities remove barriers of distance and income, offering cutting-edge information and resources to anyone with internet access.
 - **Challenges in Leading a Diverse Community**:
-    - **Time Zone Coordination**: Can make members feel overlooked and discouraged.
-    - **Reluctance to Express**: Diverse backgrounds can lead to a reluctance to express oneself openly.
-    - **Cultural Differences**: Varying perspectives require recognition that what may be considered normal in one place might be unfamiliar or even offensive in another.
-    - **Competition vs. Collaboration**: Competition can divert attention from collective objectives toward their personal interests.
+  - **Time Zone Coordination**: Can make members feel overlooked and discouraged.
+  - **Reluctance to Express**: Diverse backgrounds can lead to a reluctance to express oneself openly.
+  - **Cultural Differences**: Varying perspectives require recognition that what may be considered normal in one place might be unfamiliar or even offensive in another.
+  - **Competition vs. Collaboration**: Competition can divert attention from collective objectives toward their personal interests.
 - **Strategies for Inclusive Communities**: Prioritizing schedules, building a warm and inclusive atmosphere, valuing every voice, fostering teamwork, and offering many opportunities for engagement.
 - **Making Human Values Central**:
-    - **Widen Viewpoint**: Ingrain the why and for whom into technological discourse.
-    - **Inclusive Discussions**: Invite diverse leaders and speakers from around the world.
-    - **Human-Centric Content**: Focus tech content on the human element.
-    - **Context and Delivery**: Use inclusive and easy for nontechnical individuals to understand language and storytelling.
-    - **Highlight Individuals**: Foster a conversational style that recognizes, appreciates, and honors the unique qualities and values of each individual.
+  - **Widen Viewpoint**: Ingrain the why and for whom into technological discourse.
+  - **Inclusive Discussions**: Invite diverse leaders and speakers from around the world.
+  - **Human-Centric Content**: Focus tech content on the human element.
+  - **Context and Delivery**: Use inclusive and easy for nontechnical individuals to understand language and storytelling.
+  - **Highlight Individuals**: Foster a conversational style that recognizes, appreciates, and honors the unique qualities and values of each individual.
 - **Avenues for Community Involvement**:
-    - Community Builder programs
-    - AWS Hero invitations
-    - Publishing serverless newsletters
-    - Sharing insights via podcasts
-    - Organizing local serverless meetups and conferences
-    - Contributing to open-source projects
+  - Community Builder programs
+  - AWS Hero invitations
+  - Publishing serverless newsletters
+  - Sharing insights via podcasts
+  - Organizing local serverless meetups and conferences
+  - Contributing to open-source projects

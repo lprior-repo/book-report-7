@@ -81,7 +81,7 @@ Specific guidelines for structuring code, managing dependencies, and optimizing 
 
 ![image (36).png](static/chapter6/image_(36).png)
 
-- NOTE: Workflows offer a number of benefits: complex business process mapping, applying business rules and conditional processing, visualization of state machines via state charts, intrinsics (e.g., hashing, UUIDs, value interpolation, native application integration patterns, and SDK operations), waiting for events to complete (task callbacks, etc.), and fault tolerance.
+- > **NOTE:** Workflows offer a number of benefits: complex business process mapping, applying business rules and conditional processing, visualization of state machines via state charts, intrinsics (e.g., hashing, UUIDs, value interpolation, native application integration patterns, and SDK operations), waiting for events to complete (task callbacks, etc.), and fault tolerance.
 - Prchestration-first approach will help you to contain the complexity of the business logic in your application as it grows and scales (see Figure 6-5). An orchestration-first approach to your serverless architecture involves wrapping Lambda functions in Step Functions workflows (state machines) as a default. Rather than invoking the functions directly, your events will execute the parent workflow. Orchestration-first allows you to evolve your architecture beyond a single function to multiple functions, or even to replace parts of your function with direct service integrations and intrinsic functions, by simply iterating on the workflow without requiring any major rearchitecting.
 
 ![image (37).png](static/chapter6/image_(37).png)
@@ -137,21 +137,21 @@ It is not necessary to be dogmatic when it comes to continuous integration and d
 ![image (46).png](static/chapter6/image_(46).png)
 
 - **Guidelines for Continuous Serverless Delivery:**
-    - **Practice GitOps:** Treat Git repository as the single source of truth, triggering deployments on code pushes to the trunk branch.
-    - **Optimize for Experimentation:** Decouple components and iterate regularly. Ship it and see!
-    - **Normalize Deployments:** Remove the fear and ceremony around deploying to production—normalize it.
-    - **Deployment is Not Release:** Separate the deployment phase (delivering code to AWS account) from the release phase (delivering to users). This allows for incremental deployments and different release strategies:
-    - **Dark Releases:** Deploy new features without user awareness.
-    - **Feature Flags:** Target specific user groups (e.g., via AWS AppConfig).
-    - **Canaries:** Gradual rollout to a percentage of users (e.g., via AWS CodeDeploy for blue/green deployments).
-    - **Boring Delivery Pipelines:** The goal is safe, fast, and predictable delivery, which is primarily a social challenge. Automation is key to normalizing delivery.
-    - **Jidoka Principle:** Applied to software delivery, pipelines should be observable, issues should trigger alerts, and fixing delivery issues should be the highest priority, pausing all feature work.
-    - **Continuous Integration (CI):** Regularly apply code changes to the releasable version. Serverless architectures excel with CI due to loosely coupled microservices, allowing tiny increments and isolated deployments. CI helps catch conflicts and bugs early.
-    - **Avoid Ephemeral Environments for CI:** Ephemeral environments provisioned to test code changes in feature branches can be considered the antithesis of continuous integration. They create overhead and slow progression to production.
-    - **The Perfect Pipeline:Atomic:** Isolated pipelines per service/stack, individual changes.
-    - **Automated:** GitOps approach, automate all steps, avoid manual intervention.
-    - **Observable:** Issues trigger alerts and are diagnosable.
-    - **Rapid:** Define maximum execution time, monitor, and optimize.
+  - **Practice GitOps:** Treat Git repository as the single source of truth, triggering deployments on code pushes to the trunk branch.
+  - **Optimize for Experimentation:** Decouple components and iterate regularly. Ship it and see!
+  - **Normalize Deployments:** Remove the fear and ceremony around deploying to production—normalize it.
+  - **Deployment is Not Release:** Separate the deployment phase (delivering code to AWS account) from the release phase (delivering to users). This allows for incremental deployments and different release strategies:
+  - **Dark Releases:** Deploy new features without user awareness.
+  - **Feature Flags:** Target specific user groups (e.g., via AWS AppConfig).
+  - **Canaries:** Gradual rollout to a percentage of users (e.g., via AWS CodeDeploy for blue/green deployments).
+  - **Boring Delivery Pipelines:** The goal is safe, fast, and predictable delivery, which is primarily a social challenge. Automation is key to normalizing delivery.
+  - **Jidoka Principle:** Applied to software delivery, pipelines should be observable, issues should trigger alerts, and fixing delivery issues should be the highest priority, pausing all feature work.
+  - **Continuous Integration (CI):** Regularly apply code changes to the releasable version. Serverless architectures excel with CI due to loosely coupled microservices, allowing tiny increments and isolated deployments. CI helps catch conflicts and bugs early.
+  - **Avoid Ephemeral Environments for CI:** Ephemeral environments provisioned to test code changes in feature branches can be considered the antithesis of continuous integration. They create overhead and slow progression to production.
+  - **The Perfect Pipeline:Atomic:** Isolated pipelines per service/stack, individual changes.
+  - **Automated:** GitOps approach, automate all steps, avoid manual intervention.
+  - **Observable:** Issues trigger alerts and are diagnosable.
+  - **Rapid:** Define maximum execution time, monitor, and optimize.
 
 ## Documentation and Solution Design
 

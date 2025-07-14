@@ -55,6 +55,7 @@ For each integration point you should capture the failure modes for the categori
 | **Configuration** | You are responsible for configuring the integration points between managed services, such as event buses and rules. You should verify that the integration exists and is configured according to AWS rules and your business requirements. | Infrastructure tests, unit tests |
 | **Permissions** | You are responsible for granting the necessary permissions for integrated components to interact with each other. You should verify that the source component has permission to publish events or messages and the target has permission to consume them. | Infrastructure tests |
 | **Payloads** | The communication channel and message payload used by integrated components should be verified to ensure that an event producer is sending messages according to the contract and the consumer is handling input according to the contract. | Unit tests, contract tests, static analysis |
+
 - **Noncritical Paths:** These are "usually background processes," which are "not time-sensitive and will be fully recoverable." Their quality "should be primarily supported through alerting and fault tolerance." Teams "can afford to ship a higher percentage of bugs that disrupt these paths."
 
 ![image (60).png](static/chapter7/image_(60).png)
@@ -96,7 +97,7 @@ The "Cult of Done Manifesto" reminds that "Nothing is ever truly done. Software 
 Sarah Hamilton, AWS Community Builder and Senior Software Engineer
 Sarah Hamilton is a Senior Software Engineer and an AWS Community Builder. During her career she’s been a huge supporter of serverless technology, and she takes great pride in contributing to the entire development cycle, from designing architectures to the hands-on process of building and deploying solutions. Sarah enjoys sharing her knowledge by speaking at conferences and writing blog posts.
 
-**Q: Serverless has matured as a technology in the last couple of years, and best practices continue to evolve. However, testing still seems to be something teams find difficult to get right with serverless. How do you see the current state and best practice of serverless testing?** 
+**Q: Serverless has matured as a technology in the last couple of years, and best practices continue to evolve. However, testing still seems to be something teams find difficult to get right with serverless. How do you see the current state and best practice of serverless testing?**
 
 ****Undoubtedly, the testing of serverless applications is frequently overlooked or seen as an afterthought. Whilst I believe that our overall understanding of testing serverless applications is improving, there is still a lot of work to do. There are a few reasons why I believe we haven’t progressed at a faster rate.
 

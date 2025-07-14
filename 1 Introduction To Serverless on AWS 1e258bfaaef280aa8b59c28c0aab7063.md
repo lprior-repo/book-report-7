@@ -16,9 +16,9 @@ Serverless is defined as a "technological concept that utilizes fully managed cl
 3. **High Availability (HA):** Serverless, by employing fully managed services, provides "high availability out of the box as standard." AWS handles redundancy and data replication across multiple Availability Zones (AZs) to prevent single points of failure.
 4. **Cold Start:** Primarily associated with FaaS, it's the "latency in this initial setup" when an idle function's execution environment needs to be provisioned. Factors like deployment package size, runtime, and memory allocation contribute to cold start time.
 
-**NOTE:** There is a limit to total capacity is dependent on accounts concurrency limit.
+> **NOTE:** There is a limit to total capacity is dependent on accounts concurrency limit.
 
-**NOTE:** Lambdas have a 15 min runtime timeout. 
+> **NOTE:** Lambdas have a 15 min runtime timeout.
 
 **High Availability:** AWS takes care of the redundancy and data replication by distributing the compute and storage resources across multiple AZs, thus avoiding a single point of failure.
 
@@ -26,7 +26,7 @@ Serverless is defined as a "technological concept that utilizes fully managed cl
 
 Many factors contribute to this initial latency: the size of the function’s deployment package, the runtime environment of the programming language, the memory (RAM) allocated to the function, the number of pre-configurations (such as static data initializations), etc.
 
-**TIP:** You can opt to keep a certain number of functions "warm" in ready state by setting a functions provisioned concurrency value.
+> **TIP:** You can opt to keep a certain number of functions "warm" in ready state by setting a functions provisioned concurrency value.
 
 ## Individuality and Granularity of Resources
 
@@ -40,25 +40,25 @@ When you optimize to reduce cost, you target reducing the processing power, memo
 
 Managed data services provide built-in features to remove or transition unneeded data. For example, Amazon S3 supports per-bucket data retention policies to either delete data or transition it to a different storage class, and DynamoDB allows you to configure the Time to Live (TTL) value on every item in a table. The storage optimization options are not confined to the mainstream data stores; you can specify the message retention period for each SQS queue, Kinesis stream, API cache, etc.
 
-Warning: DynamDB manages the TTL configuration of the table items efficiently but may take up to 48 hours to delete from the table. 
+> **Warning:** DynamDB manages the TTL configuration of the table items efficiently but may take up to 48 hours to delete from the table.
 
 ## Granular Security Permissions
 
-With Identity and Access Management you can apply least privilege to a simple function or lambda level. 
+With Identity and Access Management you can apply least privilege to a simple function or lambda level.
 
-The same principles apply to DynamoDB to access only specific parts of records. 
+The same principles apply to DynamoDB to access only specific parts of records.
 
 ## Incremental and Iterative Development
 
-You can start very simple with serverless and also scale up incredibly fast as well. 
+You can start very simple with serverless and also scale up incredibly fast as well.
 
 At the heart of serverless development is Event Driven Architecture. you compose your applications with loosely coupled services that interact via events, messages, and APIs. EDA principles enable you to build modular and extensible serverless applications. You avoid hard dependencies between services, it becomes easier to extend applications by adding new services without breaking functionality of existing when done right.
 
 ## Building Multiskilled, Diverse Engineering Teams
 
-Adding new tech brings challengs and opporounities to learn new languages, databases, SaaS platforms, or cloud providers often requirng changes from others. By moving to the cloud you develop new skillsets and skills. 
+Adding new tech brings challengs and opporounities to learn new languages, databases, SaaS platforms, or cloud providers often requirng changes from others. By moving to the cloud you develop new skillsets and skills.
 
-You will have to learn many different technologies and various design patterns adopting to serverless: 
+You will have to learn many different technologies and various design patterns adopting to serverless:
 
 - AWS Lambda
 - AWS Fargate
@@ -93,8 +93,7 @@ Serverless is more than an architecture; it's a comprehensive "technology ecosys
 
 Adopting a DevOps model takes a software engineer who otherwise focuses on developing applications into performing operational tasks. You no longer work in a siloed software development cycle but are involved in its many phases, such as continuous integration and delivery (CI/CD), monitoring and observability, commissioning the cloud infrastructure, and securing applications, among other things.
 
-Adopting a serverless model takes you many steps further. Though it frees you from managing servers, you are now programming the business logic, composing your application using managed services, knitting them together with infrastructure as code (IaC), and operating them in the cloud. Just knowing how to write software is not enough. You have to protect your application from malicious users, make it available 24/7 to customers worldwide, and observe its operational characteristics to improve it continually. Becoming a successful serverless engineer thus requires developing a whole new set of skills, and cultivating a DevOps mindset 
-
+Adopting a serverless model takes you many steps further. Though it frees you from managing servers, you are now programming the business logic, composing your application using managed services, knitting them together with infrastructure as code (IaC), and operating them in the cloud. Just knowing how to write software is not enough. You have to protect your application from malicious users, make it available 24/7 to customers worldwide, and observe its operational characteristics to improve it continually. Becoming a successful serverless engineer thus requires developing a whole new set of skills, and cultivating a DevOps mindset
 
 ## What’s in a Name?
 
@@ -103,7 +102,6 @@ When you look at the AWS service names, you’ll notice a mix of “Amazon” an
 The most popular and relevant theory suggests that services with the Amazon prefix work on their own (standalone services), whereas the ones with the AWS prefix support other services (utility services) and are not intended to be used on their own. AWS Lambda, for example, is triggered by other services. However, as services evolve over time with new capabilities, you may find exceptions where this distinction no longer holds true.
 
 Various AWS Resources:
-
 
 ## The AWS Well-Architected Framework
 
@@ -116,11 +114,11 @@ This framework provides "architectural best practices for designing, building, a
 5. **Cost Optimization:** Operating applications to deliver value while keeping costs low, using cost-effective resources like serverless.
 6. **Sustainability:** The latest addition, focusing on "reducing energy consumption" and optimizing resource use (compute, storage, network) to the required level, not ove
 
-Chapter 1 Interview: 
+# Interview with an Industry Expert
 
-Danilo Poccia, Chief Evangelist (EMEA), Amazon Web Services
+**Danilo Poccia, Chief Evangelist (EMEA), Amazon Web Services**
 
-**Why does the software Industry Need serverless?** 
+**Why does the software Industry Need serverless?**
 
 When you build an application, it can become complex to deploy, test, or add a new feature sooner or later without breaking the existing functionalities. In the last 20 years, complexity has become a science that has found similarities across many different fields, such as mathematics, physics, and social sciences. Complexity theory finds that when there are strong dependencies between components, even simple components, you might experience the emergence of “complex” and difficult-to-predict behaviors. For example, the behavior of an ant is simple, but together, ants can discover food hidden in remote locations and bring it back to their nest. The emergence of unexpected behaviors applies very well to software development.
 
@@ -130,40 +128,40 @@ But still, each microservice brings its nonfunctional requirements in terms of s
 
 **How does serverless as a technology enable teams of different sizes to innovate and build solutions faster?**
 
-Small teams work better. Serverless empowers small teams to do more 
-because it lets them remove the parts that can be implemented off the 
-shelf by an existing service. It naturally leads them to adopt a 
+Small teams work better. Serverless empowers small teams to do more
+because it lets them remove the parts that can be implemented off the
+shelf by an existing service. It naturally leads them to adopt a
 microservice architecture and use distributed systems. It can be hard at
- first if they don’t have any experience in these fields, but it’s 
+ first if they don’t have any experience in these fields, but it’s
 rewarding when they learn and see the results.
 
-If you need to make a big change in the way you build applications, 
-for example, adopting serverless or microservices, put yourself in a 
-place where you can make mistakes. It’s by making mistakes that we 
-learn. As you move to production, collecting metrics on code complexity 
-in your deployment pipeline helps keep the codebase under control. To 
-move that a step further, I find the idea of a “fitness function” (as 
+If you need to make a big change in the way you build applications,
+for example, adopting serverless or microservices, put yourself in a
+place where you can make mistakes. It’s by making mistakes that we
+learn. As you move to production, collecting metrics on code complexity
+in your deployment pipeline helps keep the codebase under control. To
+move that a step further, I find the idea of a “fitness function” (as
 described in the book [*Building Evolutionary Architectures*](https://oreil.ly/ZZOko)
- by Rebecca Parsons, Neal Ford, and Patrick Kua [O’Reilly]) extremely 
-interesting, especially if you define “guardrails” about what the 
+ by Rebecca Parsons, Neal Ford, and Patrick Kua [O’Reilly]) extremely
+interesting, especially if you define “guardrails” about what the
 fitness of your application should be.
 
 Automation helps at any scale but is incredibly effective for small teams.
 
 **What advice would you give to the readers starting their personal or organizational serverless adoption journey?**
 
-Learn the mental model. Don’t focus on the implementation details. 
-Understand the pros and cons of using microservices and distributed 
-architectures. Time becomes important because there is latency and 
-concurrency to be considered. Design your systems for asynchronous 
+Learn the mental model. Don’t focus on the implementation details.
+Understand the pros and cons of using microservices and distributed
+architectures. Time becomes important because there is latency and
+concurrency to be considered. Design your systems for asynchronous
 communication and eventual consistency.
 
 Faults are a natural part of any architecture. Think of your strategy
- to recover and manage faults. Can you record and repeat what your 
-application is doing? Can events help you do that? Also, two core 
-requirements that are more important now than before are observability 
+ to recover and manage faults. Can you record and repeat what your
+application is doing? Can events help you do that? Also, two core
+requirements that are more important now than before are observability
 and sustainability. They are more related than one might think at first.
 
 Offload the parts that are not unique to your application to services
- and SaaS offerings that can implement those functionalities for you. 
+ and SaaS offerings that can implement those functionalities for you.
 Focus on what you want to build. It’s there where you can make a difference.
