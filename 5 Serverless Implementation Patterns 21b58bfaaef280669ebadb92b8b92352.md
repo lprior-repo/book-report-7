@@ -1,6 +1,6 @@
 # 5. Serverless Implementation Patterns
 
-![image (13).png](static/chapter5/image_(13).png)
+![image (13).png](static/chapter5/image_67.png)
 
 In its simplest form, a pattern is a **proven solution to a recurring problem2**. When applied to software design, a pattern assists designers in achieving the correct software design more quickly, while an implementation pattern helps developers build applications rapidly**2**. Most software patterns share several common elements:
 **Evolution and Categories of Software Patterns**
@@ -24,9 +24,9 @@ New patterns are continually being discovered and applied in serverless developm
 
 **It remains critical to understand the core fundamentals of the pattern and know when to USE IT AND NOT USE IT.**
 
-![image (14).png](static/chapter5/image_(14).png)
+![image (14).png](static/chapter5/image_68.png)
 
-![image (15).png](static/chapter5/image_(15).png)
+![image (15).png](static/chapter5/image_69.png)
 
 # Strangler Fig Pattern
 
@@ -56,16 +56,16 @@ The sources provide specific examples of applying the pattern:
 
 **1. Strangling Data Processing Flows:**
 
-![image (16).png](static/chapter5/image_(16).png)
+![image (16).png](static/chapter5/image_70.png)
 
 - Many organizations have vital data and data processing flows spanning multiple domains.
 - A common legacy approach involves data files placed in network folders, fetched by consuming applications at intervals.
 
-![image (17).png](static/chapter5/image_(17).png)
+![image (17).png](static/chapter5/image_71.png)
 
 - The migration requires a vision of the target serverless architecture, which might include new serverless microservices alongside existing applications.
 
-![image (18).png](static/chapter5/image_(18).png)
+![image (18).png](static/chapter5/image_72.png)
 
 - The goal is to gradually direct data feeds from legacy routes into a common place, like an S3 product feeds bucket.
 - An intermediary phase might be needed, for example, rerouting a data feed to a legacy system via an API, before fully switching to a new backend. This improves efficiency by processing feeds as soon as they arrive.
@@ -79,13 +79,13 @@ The sources provide specific examples of applying the pattern:
   - **API Gateway as the façade layer:** Amazon API Gateway is suitable for AWS cloud migrations, offering service integrations to invoke HTTP endpoints. Initially, the new API Gateway becomes a target for a client application but routes requests to the legacy gateway while the new microservice is developed. Once the new microservice is ready, routing is switched directly to it, and the legacy system is further "strangled". A warning is issued that routing traffic through an extra network route (from new API Gateway to old API Gateway) during migration can add latency.
   -
 
-    ![image.png](static/chapter5/image.png)
+    ![image.png](static/chapter5/image_66.png)
 
-    ![image.png](static/chapter5/image%201.png)
+    ![image.png](static/chapter5/image_54.png)
 
 ## The Backend for Frontend Pattern
 
-![image.png](static/chapter5/image%202.png)
+![image.png](static/chapter5/image_55.png)
 
 In many architectures that serve a variety of clients, a common approach is to provide a single, general-purpose API endpoint. This omnibus API acts as a facade to the underlying system, but it must cater to the needs of every client, from full-featured desktop web browsers to resource-constrained mobile applications. The Backend for Frontend (BFF) pattern offers a different approach. Instead of a single facade, it advocates for creating a separate backend service for each distinct frontend, providing a tailored API that serves as an intermediary between that specific client and the downstream services.
 
@@ -137,11 +137,11 @@ Here are the core concepts of circuit breaker implementation:
 
 - **A closed circuit:** This signifies that the connection between two systems is working as expected. For instance, in a synchronous request/response invocation, a Lambda function successfully fetching customer order details from a third-party SaaS platform indicates a closed circuit.
 
-![image (20).png](static/chapter5/image_(20).png)
+![image (20).png](static/chapter5/image_73.png)
 
 - **An open circuit:** When a circuit is marked as open, the connection between systems is prevented. If the third-party system is down or too slow, the Lambda function will not invoke it but will fail immediately and return an error response.
 
-    ![image (21).png](static/chapter5/image_(21).png)
+    ![image (21).png](static/chapter5/image_74.png)
 
 - **The circuit breaker:** This is an object or manager that wraps a protected function call and monitors for errors. It uses defined logic to decide whether to declare a circuit as open or closed. This determination often depends on threshold conditions, such as a certain number of consecutive failures within a specific timeframe. The purpose of the circuit breaker is to fail fast rather than waiting for an unresponsive service, thereby limiting damage.
 - **A half-open circuit:** When a circuit is open, the circuit breaker needs a mechanism to determine if it's safe to close the circuit again. Since it cannot know if the external application has recovered, the typical approach is to wait for a duration and then allow a few invocations through. Based on the success or failure of these test calls and its internal logic, the circuit breaker will either mark the circuit as closed or keep it open with a new timeout value for another check. This "half-open" state allows the circuit breaker to "test the waters".
@@ -159,7 +159,7 @@ The circuit breaker pattern is particularly relevant in serverless for several r
 
 As the Lambda service does not offer built-in circuit breaking functionality, understanding the pattern and its implementation is important. The exact implementation logic varies based on the use case, but it minimally requires a place to store the current status of the circuit. Additional data like threshold counters, timeout values, and number of attempts may also be stored. Options for storing this information include AWS Systems Manager (SSM) Parameter Store for simple cases or DynamoDB for more complex logic involving counts and timestamps.
 
-![image (22).png](static/chapter5/image_(22).png)
+![image (22).png](static/chapter5/image_75.png)
 
 ## Failing Faster and Request Handling
 
@@ -174,7 +174,7 @@ For critical services, another common use of the circuit breaker is to store req
 - **Dedicated SQS queues for storage and replay.** Requests are pushed to the queue when the circuit is open and processed from the queue when it closes.
 - Dedicated Event-Driven Status Checking Service. Using a microservice to handle status checks.
 
-![image (23).png](static/chapter5/image_(23).png)
+![image (23).png](static/chapter5/image_76.png)
 
 - **DynamoDB to store incoming requests or events,** with a status attribute to indicate whether a request has been processed or needs resubmission (RETRY).
 - **EventBridge's event archiving and replay capabilities.** When the circuit is open, a retry event is sent to a custom event bus and routed to an EventBridge archive. When the circuit closes, events are replayed from the archive onto the bus for resubmission.
@@ -183,17 +183,17 @@ For critical services, another common use of the circuit breaker is to store req
   - Replay speed control, and the ability to delete replayed events.
   - There can also be a delay for events to arrive in the archive.
 
-![image (24).png](static/chapter5/image_(24).png)
+![image (24).png](static/chapter5/image_77.png)
 
-![image (25).png](static/chapter5/image_(25).png)
+![image (25).png](static/chapter5/image_78.png)
 
 # Functionless Integration Pattern
 
 The functionless integration pattern is a concept aimed at reducing the use of Lambda functions in serverless architecture. The core idea is to compose applications using managed cloud services, knitting them together with out-of-the-box features and Infrastructure as Code (IaC) rather than by hand-coding Lambda functions for integration. This pattern embodies the principle that "code is a liability" where applicable, though it acknowledges that applications cannot be built entirely without code.
 
-![image (26).png](static/chapter5/image_(26).png)
+![image (26).png](static/chapter5/image_79.png)
 
-![image (27).png](static/chapter5/image_(27).png)
+![image (27).png](static/chapter5/image_80.png)
 
 ## Purpose and Benefits
 
@@ -243,20 +243,20 @@ Key AWS services that facilitate this pattern include:
 
 - **Amazon EventBridge:** As an event bus or choreographer, EventBridge helps reduce the need for function code. Many AWS services can send events directly to EventBridge, and many services can directly receive events from EventBridge as targets. The "functionless-first principle" encourages assessing integration possibilities without a Lambda function.
 
-    ![image (32).png](static/chapter5/image_(32).png)
+    ![image (32).png](static/chapter5/image_85.png)
 
 - **API Destinations:** A powerful EventBridge feature, API destinations are HTTP endpoints configurable as targets for event routing rules. They enable native integration with applications using RESTful API calls, eliminating Lambda functions for tasks like invoking external HTTP APIs. They also handle authentication, retries, DLQ attachments, and invocation rate control.
 
-![image (28).png](static/chapter5/image_(28).png)
+![image (28).png](static/chapter5/image_81.png)
 
-![image (29).png](static/chapter5/image_(29).png)
+![image (29).png](static/chapter5/image_82.png)
 
-![image (31).png](static/chapter5/image_(31).png)
+![image (31).png](static/chapter5/image_84.png)
 
 - **EventBridge Pipes:** This feature allows for the creation of point-to-point integrations with optional event filtering, transformation, and enrichment, often eliminating the need for Lambda functions.
 - **Amazon DynamoDB:** It can be used for sequence number generation via atomic counters (the `UpdateItem` operation) and exposed as a service through API Gateway, eliminating custom Lambda code for this purpose.
 
-![image (30).png](static/chapter5/image_(30).png)
+![image (30).png](static/chapter5/image_83.png)
 
 - **Other Services:** Services like Amazon S3 and DynamoDB offer automated data cleanup via lifecycle policies and TTL values, while Amazon SNS allows for sending notifications without Lambda functions.
 
@@ -273,11 +273,11 @@ While beneficial, the functionless pattern has important considerations:
 
 The Event Triage pattern is a crucial concept in modern event-driven applications, particularly when dealing with high volumes of diverse events. It involves classifying, grouping, and dispatching events to interested targets.
 
-![sdoa_0526.png](static/chapter5/sdoa_0526.png)
+![sdoa_0526.png](static/chapter5/image_86.png)
 
 ## What Is Event Triage?
 
-![sdoa_0527.png](static/chapter5/sdoa_0527.png)
+![sdoa_0527.png](static/chapter5/image_87.png)
 
 In the software industry, "triage" typically refers to the process of categorizing and prioritizing defects or bugs. More broadly, it means classifying items and assigning them to the appropriate team or engineer for action. In the context of events, Event Triage involves identifying each event by its type, grouping them, and dispatching them to interested targets. The application performing the triage does not need to know all the consumers; instead, it sends events to respective dispatcher proxies for each consumer.
 
@@ -293,7 +293,7 @@ An event triage application should possess the following capabilities:
 
 ## Implementation Details
 
-![sdoa_0528.png](static/chapter5/sdoa_0528.png)
+![sdoa_0528.png](static/chapter5/image_88.png)
 
 The core of the event triage pattern is the triage function, often implemented as a Lambda function. This function can be invoked when a service like Kinesis Data Firehose places a new event data file in an S3 bucket. Data buffering parameters within Firehose (e.g., buffer size or time interval) help optimize this function's invocation.
 
@@ -325,7 +325,7 @@ There are similarities but also subtle differences:
 
 The Gatekeeper Event Bus pattern is a dedicated event bus that functions as a guarded entry and exit point for events at your application's boundary. Its primary purpose is to control the flow of events into and out of a specific bounded context, helping to manage the influx of events in a choreographed microservices environment.
 
-![image(17).png](static/chapter5/image(17).png)
+![image(17).png](static/chapter5/image_60.png)
 
 ## Purpose and Need
 
@@ -335,7 +335,7 @@ In complex event-driven systems, a gatekeeper event bus provides fine-grained co
 - **Isolating On-boarding:** It isolates and simplifies the tasks related to on boarding new external event consumers and producers.
 - **Security and Compliance:** It helps manage security concerns like data encryption and cross-account access. By acting as a checkpoint, the gatekeeper helps enforce measures to identify and protect Personally Identifiable Information (PII) and other sensitive data before events leave the bounded context.
 
-![image(16).png](static/chapter5/image(16).png)
+![image(16).png](static/chapter5/image_59.png)
 
 ## Core Functionality and Implementation
 
@@ -369,7 +369,7 @@ While this is a simple pattern to implement, there are important factors to be a
 
 A common event-driven pattern that can be compared to dancers performing a sequence of movements. In this analogy, the dancers represent various microservices, each contributing a specific action to complete a business process. It is one of the two most common patterns for implementing business processes in an enterprise, the other being service orchestration.
 
-![image.png](static/chapter5/image%203.png)
+![image.png](static/chapter5/image_56.png)
 
 ## Core Concept
 
@@ -383,7 +383,7 @@ This single event then triggers several independent services. The Loyalty Servic
 
 These services belong to different domains and react to the event without being directly coupled, avoiding the creation of a long, synchronous call chain.
 
-![image.png](static/chapter5/image%204.png)
+![image.png](static/chapter5/image_57.png)
 
 Considerations for Choreographing Services
 
@@ -400,13 +400,13 @@ While popular in serverless development, microservices choreography requires car
 
 Service orchestration is an architectural pattern in which a central engine acts as a controller or conductor, providing instructions to different services to perform tasks as part of an overall workflow. This pattern is analogous to an orchestra where the conductor (the orchestrator) has a complete understanding of the entire workflow. This conductor manages the inputs and outputs of each step, issues commands for tasks, creates branches for sub-flows based on decisions, and consolidates results from various branches. AWS Step Functions is a serverless service that provides these orchestration capabilities.
 
-![image(19).png](static/chapter5/image(19).png)
+![image(19).png](static/chapter5/image_61.png)
 
 This pattern is one of the two most common approaches to implementing business processes in an enterprise, the other being microservices choreography. While choreography involves services reacting independently to events, orchestration uses a central engine to coordinate the flow. Orchestration helps in capturing business processes as a sequence of inputs, outputs, actions, tasks, and decisions, enabling automation for improved efficiency.
 
 A bad way to chain together Lambdas:
 
-![image(20).png](static/chapter5/image(20).png)
+![image(20).png](static/chapter5/image_62.png)
 
 In a distributed event-driven microservices architecture, there are three main types of orchestration:
 
@@ -420,7 +420,7 @@ In a distributed event-driven microservices architecture, there are three main t
 - The primary benefit of this approach is that it enables microservices to be self-contained, minimizing external dependencies, with the potential exception of events published to a custom event bus within the bounded context.
 - An example is a customer registration process workflow that signs up a user and issues a unique identifier, residing entirely within the customer registration microservice.
 
-![image(21).png](static/chapter5/image(21).png)
+![image(21).png](static/chapter5/image_63.png)
 
 ---
 
@@ -431,7 +431,7 @@ In a distributed event-driven microservices architecture, there are three main t
 - AWS Step Functions, acting as the orchestrator, can directly integrate with and invoke external HTTPS endpoints.
 - An illustration of this is a customer registration business flow interacting with a separate customer care bounded context to trigger a feedback survey via an API call.
 
-![image(22).png](static/chapter5/image(22).png)
+![image(22).png](static/chapter5/image_64.png)
 
 ---
 
@@ -450,9 +450,9 @@ In a distributed event-driven microservices architecture, there are three main t
 - Task providers (consumers of the tokens) have the responsibility to return them, and the primary orchestrator uses special event filters for this purpose.
 - Step Functions offers methods like `SendTaskSuccess`, `SendTaskFailure`, and `SendTaskHeartbeat` to manage the workflow's state based on the task's outcome.
 
-![image(23).png](static/chapter5/image(23).png)
+![image(23).png](static/chapter5/image_65.png)
 
-![image.png](static/chapter5/image%205.png)
+![image.png](static/chapter5/image_58.png)
 
 # Saga Pattern
 

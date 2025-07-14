@@ -2,7 +2,7 @@
 
 We need to shift left on security and be part of our considerations the moment we are considering ideas for software.
 
-![image.png](static/chapter4/image.png)
+![image.png](static/chapter4/image_51.png)
 
 Serverless provides even different security requirements.
 
@@ -202,7 +202,7 @@ As a serverless developer, you are responsible for:
   - The secure configuration of the AWS resources you define.
   - The IAM roles and policies that govern access control in your application.
 
-![image.png](static/chapter4/image%201.png)
+![image.png](static/chapter4/image_46.png)
 
 ## Lesson 1 Proactive Security with Threat Modeling
 
@@ -291,11 +291,11 @@ For organizations with a high level of security maturity, you can go even furthe
 
 ## Securing API Gateways
 
-![image.png](static/chapter4/image%202.png)
+![image.png](static/chapter4/image_47.png)
 
 Sample Cognito and API Gateway
 
-![image.png](static/chapter4/image%203.png)
+![image.png](static/chapter4/image_48.png)
 
 ## Securing Your Front Door — Protecting HTTP APIs
 
@@ -332,7 +332,7 @@ JWTs are a crucial authorization strategy for securing serverless APIs, particul
 
 Caching the responses of your Lambda authorizers will result in quicker responses to API requests as well as a reduction in costs, as the Lambda function will be invoked significantly less frequently.
 
-![image.png](static/chapter4/image%204.png)
+![image.png](static/chapter4/image_49.png)
 
 ## **Layer 2 Protection and Validation**
 
@@ -344,7 +344,7 @@ Beyond authorization, you must protect your API from abuse and bad data.
 - **Request Validation:**
   - You can define a **JSON Schema** for your API routes. API Gateway will validate the structure of incoming requests against this schema *before* invoking your backend Lambda function. If the request is missing a required field or has the wrong data type, it is rejected immediately, saving a function invocation and preventing malformed data from entering your system.
 
-![image.png](static/chapter4/image%205.png)
+![image.png](static/chapter4/image_50.png)
 
 ---
 
@@ -356,13 +356,13 @@ In asynchronous, event-driven systems, the security challenge shifts from authen
 
 In a typical event-driven architecture (e.g., using Amazon EventBridge), producers send events without knowing who the consumers are. This creates a security gap: a consumer must be able to trust that a message is authentic and has not been altered.
 
-![image (10).png](static/chapter4/image_(10).png)
+![image (10).png](static/chapter4/image_52.png)
 
 ## **The Solution Verifiable and Encrypted Messages**
 
 A powerful pattern to solve this is using **Nested JSON Web Tokens (JWTs)**.
 
-![image (11).png](static/chapter4/image_(11).png)
+![image (11).png](static/chapter4/image_53.png)
 
 1. **The Producer's Job: Sign then Encrypt**
     - The service producing the message first **signs** the payload with its **private key**. This creates a verifiable statement of authenticity.

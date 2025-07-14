@@ -8,13 +8,13 @@ Operating serverless applications in production shares fundamental goals with tr
 
 Serverless technologies provide automatic scaling of compute, storage, and communication, making them ideal for applications with fluctuating demand. However, this advantage comes with crucial responsibilities:
 
-![image (47) (1).png](static/chapter8/image_(47)_(1).png)
+![image (47) (1).png](static/chapter8/image_107.png)
 
 - **Understanding Units of Scale:** Engineers must know the specific units of scale for each managed service (e.g., Lambda's function execution concurrency, DynamoDB's read/write capacity, Kinesis streams' input/delivery limits).
 - **Adhering to Service Limits (Quotas):** AWS managed services have implicit usage contracts with documented quotas. Engineers must be "very familiar with the quota pages in the documentation" and understand whether limits are soft (can be increased) or hard. This understanding should be integrated into "solution design process and cost estimation."
 - **Application-Level Scalability:** Even if underlying services scale, the application itself may not if not designed with scale in mind. Deploying to production "from day 1 and every day after" is crucial for continuous analysis and optimization for serverless scale.
 
-![image (56).png](static/chapter8/image_(56).png)
+![image (56).png](static/chapter8/image_116.png)
 
 ## The Paradigm Shift to Observability
 
@@ -31,7 +31,7 @@ Observability is paramount for serverless operations, moving beyond traditional 
 
 Instead of monitoring "everything," focus on "the most critical parts of your application; the parts that must be working at all times."
 
-![image (55).png](static/chapter8/image_(55).png)
+![image (55).png](static/chapter8/image_115.png)
 
 - **RED Method:** Apply the RED method to ascertain critical health:
 - **Rate:** The rate of requests being received.
@@ -111,7 +111,7 @@ Metrics to look out for with Serverless:
 - **Dead Letter Invocations:** The number of times an event failed to be delivered to a target and was sent to a dead-letter queue.
 - **Failed Invocations:** The number of times a target invocation failed.
 
-![image (54).png](static/chapter8/image_(54).png)
+![image (54).png](static/chapter8/image_114.png)
 
 ## Capability Alerting and Service Level Objectives (SLOs)
 
@@ -129,12 +129,12 @@ Metrics to look out for with Serverless:
 
 - **Prefer Traces to Logs:** "A robust tracing setup will always tell the full story across entire distributed systems, through owned and managed services. Logs can tell you what went wrong, but you first have to know where to look. Traces can tell you where something went wrong, and then you can dig deeper."
 
-![image (53).png](static/chapter8/image_(53).png)
+![image (53).png](static/chapter8/image_113.png)
 
 - **AWS X-Ray:** AWS's native solution for distributed tracing, integrated with CloudWatch.
 -
 
-![image (52).png](static/chapter8/image_(52).png)
+![image (52).png](static/chapter8/image_112.png)
 
 - **Components:** Segments (for a single request), Subsegments (granular work within a segment), Annotations (indexed key/value pairs for filtering/grouping, up to 50), Metadata (additional context not for searching), Exceptions.
 - **Instrumentation:** Configuring microservices and managed services to emit trace data. For managed services, this is often through configuration (e.g., CloudFormation); for Lambda functions, it involves X-Ray SDK, ideally via AWS Powertools.
@@ -142,9 +142,9 @@ Metrics to look out for with Serverless:
 - **Usage Considerations:** X-Ray data is retained for a maximum of 30 days and console searches are limited to 6 hours. Sampling rates should be set based on cost tolerance, with 100% useful for new services and then reduced.
 -
 
-![image (51).png](static/chapter8/image_(51).png)
+![image (51).png](static/chapter8/image_111.png)
 
-![image (50).png](static/chapter8/image_(50).png)
+![image (50).png](static/chapter8/image_110.png)
 
 ## When Things Go Wrong Fault Tolerance and Recovery
 
@@ -164,7 +164,7 @@ Metrics to look out for with Serverless:
 
 When an issue arises, the core analysis loop, as introduced in *Observability Engineering*, helps systematically find the root cause:
 
-![image (49).png](static/chapter8/image_(49).png)
+![image (49).png](static/chapter8/image_109.png)
 
 1. **Verify the Problem:** Analyze surrounding systems' health using critical health dashboards.
 2. **Identify Patterns:** Find outlying data points or events causing deviation and identify patterns pointing to a root cause.
@@ -181,7 +181,7 @@ Even with fault tolerance, some single points of failure remain, and external de
 - **Isolation of Components:** Develop, deploy, and operate single points of failure in isolation (e.g., Cognito user pools or application state data stores in separate stacks).
 - **AWS Availability (Regions and Availability Zones):Regions:** Geographical areas with isolated Availability Zones.
 
-![image (48).png](static/chapter8/image_(48).png)
+![image (48).png](static/chapter8/image_108.png)
 
 - **Availability Zones (AZs):** Physically isolated sections within a Region, operating and failing independently, connected by high-bandwidth, low-latency networking for synchronous replication. This infrastructure enables highly available, fault-tolerant, and scalable applications.
 - **Multi-Account, Multi-Region Strategy:Trade-off:** This strategy involves substantial effort and in-depth understanding. The decision "it depends" on use case, team capability, and geographical location.

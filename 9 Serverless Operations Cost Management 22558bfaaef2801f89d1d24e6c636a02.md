@@ -4,7 +4,7 @@
 
 - **Core Innovation:** Serverless introduces a "pay-as-you-go" or "pay-per-use" pricing model, where users only pay for the resources their application actually consumes, rather than for idle servers. This is a "key innovation that serverless has brought to software operations in the cloud."
 
-![image (61).png](static/chapter9/image_(61).png)
+![image (61).png](static/chapter9/image_117.png)
 
 - **Cost-Efficiency Potential:** This model allows applications to "scale usage... from zero, paying very little or nothing at all, to peak demand, with rising costs." This offers "huge potential for serverless to allow you to focus on building software to meet your business and user needs without breaking the bank."
 - **The "Double-Edged Sword":** While beneficial, the pay-per-use model "should be approached with caution as well as optimism." Running serverless "at scale can mean inefficient usage is penalized with huge bills." As industry expert Ben Ellerby states, "the pay-per-use model can lead to less predictability."
@@ -33,7 +33,7 @@
 - **Storage:**Cost based on "amount of data written to and read from your chosen data store" and "storing the data over time."
 - **Amazon S3:** Primary costs are "storage and requests." Storage costs vary by "storage class" (e.g., Standard, Standard-IA, Glacier Deep Archive). Data compression can "save on storage costs." Lifecycle policies can automate object movement to cheaper storage classes or expiration.
 
-![image (62).png](static/chapter9/image_(62).png)
+![image (62).png](static/chapter9/image_118.png)
 
 - **Amazon DynamoDB:** Billed by "read and write requests" and "amount of data stored." Two billing modes: "provisioned or on-demand." On-demand for unpredictable traffic, provisioned for consistent traffic. Standard-IA class can reduce storage costs. DynamoDB Accelerator (DAX) can reduce read/write request costs.
 - **Storage costs often similar to non-serverless:** "The cost of storing operational data and application state will most likely be similar to the non-serverless applications you have operated in the past."
@@ -47,7 +47,7 @@
 - **Transfer-out Costs:** Incurred when transferring logs/metrics from CloudWatch "out from AWS to the internet." Prefer "metric streams" over polling for metrics.
 - **Expensive Caching:** While often a cost-saving technique, "this may not always be true with serverless compute on Lambda." API Gateway caching, for instance, "can get very expensive" as it's billed per GB of cache size per hour. Costs should always be estimated with and without caching.
 
-![image (63) (1).png](static/chapter9/image_(63)_(1).png)
+![image (63) (1).png](static/chapter9/image_119.png)
 
 - **Services Calling Other Services:** "Hidden" costs from underlying operations of integrated services (e.g., Athena calling S3, Glue, KMS). Pricing pages should be consulted, and "always monitor costs in production when releasing new pieces of infrastructure."
 - **Infinite Lambda Loops:** Functions recursively invoking themselves (e.g., Lambda outputs to SQS queue that triggered it). Lambda's "recursive loop detection feature" can prevent this.
@@ -56,12 +56,12 @@
 
 ## Serverless Cost Estimation and Optimization
 
-![image (67).png](static/chapter9/image_(67).png)
+![image (67).png](static/chapter9/image_121.png)
 
 - **Importance of Estimation:** "Cost estimation can be a very useful exercise, especially when designing new serverless applications or microservices and evaluating architectural options."
 - **Difficulty of Prediction:** "Difficult to accurately predict operational costs for an application that is distributed across myriad managed services, all with pay-per-use pricing models." Precise estimates rely on "fairly accurate knowledge of expected traffic."
 
-![image (64).png](static/chapter9/image_(64).png)
+![image (64).png](static/chapter9/image_120.png)
 
 **Estimation Steps:**
 
@@ -79,7 +79,7 @@
 - **Billing Analysis:** Essential to provide AWS bill access to all engineers. Use "AWS Billing console and Cost Explorer" for monthly analysis to "identify consistently high costs" and drill down into line items. Set up "critical billing alert[s]" for unexpected spikes.
 - **Budget Alerts:** Use AWS Budgets to "proactively monitor your monthly expenditure" and receive alerts when budgets are exceeded. Set alerts based on a baseline with buffer (e.g., 80%, 90%, 100% of budget). AWS Cost Management console offers "cost anomaly detection."
 
-![image (68).png](static/chapter9/image_(68).png)
+![image (68).png](static/chapter9/image_122.png)
 
 - **Strategies for Cost Reduction:**
   - Continuously monitor application costs for anomalies.

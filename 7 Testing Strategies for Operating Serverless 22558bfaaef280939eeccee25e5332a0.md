@@ -12,7 +12,7 @@ Serverless applications present distinct attributes that challenge traditional t
 
 - **Decoupled by Design, Coupled in Testing:** While serverless fosters decoupling (microservices, event-driven architecture), "approaches to testing software have not kept up." Traditional strategies often "couple it again during testing," leading to rigid, full-system deployments for testing.
 
-![image (58).png](static/chapter7/image_(58).png)
+![image (58).png](static/chapter7/image_104.png)
 
 - **Event-Driven Communication:** The asynchronous nature of event-driven architectures makes them "notoriously difficult to test when applying strategies not fit for purpose."
 - **Managed Services:** Serverless heavily relies on AWS-managed services, which are "opaque boxes dotted around your architecture; components you do not own, control, or fully understand." This raises the question of what parts of these services to test. The mantra "If you can’t fix it you shouldn’t test it" applies here, implying a focus on owned code and configuration.
@@ -25,7 +25,7 @@ Serverless applications present distinct attributes that challenge traditional t
 
 The "serverless square of balance" (Test, Deliver, Observe, Recover) is a crucial framework for achieving resilient, high-quality serverless applications. These activities must be "designed and undertaken in the most efficient way possible" and "balanced against one another, without overly relying on one or two techniques."
 
-![image (57).png](static/chapter7/image_(57).png)
+![image (57).png](static/chapter7/image_103.png)
 
 - **Speed Over Stability (Initially):** "In most cases, speed should always be preferred to stability. Stability is a product of speed; without speed there is no stability."
 - **Move Fast and Make Things:** Research from DORA indicates that "high-performing teams delivered code into production...440 times faster than low-performing teams while having a change failure rate 5 times lower." This contradicts the notion that speed sacrifices quality.
@@ -35,7 +35,7 @@ The "serverless square of balance" (Test, Deliver, Observe, Recover) is a crucia
 
 A clear test strategy is "absolutely crucial to the scalability of its development and its stability."
 
-![image (59).png](static/chapter7/image_(59).png)
+![image (59).png](static/chapter7/image_105.png)
 
 - **Focus on Business Logic via Unit Tests:** The "bulk of business logic testing can thus be achieved through unit tests that assert the various operations of a Lambda function." Sarah Hamilton emphasizes this as "nonnegotiable" for both startups and enterprises due to its low overhead and high confidence return.
 - **Mocking Side Effects:** To keep unit tests "predictable (and fast), side effects must be mocked." This is particularly relevant for "network requests to third-party vendors or AWS SDK calls." Mocking should be isolated to "individual tests and units under test rather than mocking once on a global level." Sarah Hamilton specifically advises mocking third parties, stating, "Your tests should test the code that you can control, not the third-party code."
@@ -58,7 +58,7 @@ For each integration point you should capture the failure modes for the categori
 
 - **Noncritical Paths:** These are "usually background processes," which are "not time-sensitive and will be fully recoverable." Their quality "should be primarily supported through alerting and fault tolerance." Teams "can afford to ship a higher percentage of bugs that disrupt these paths."
 
-![image (60).png](static/chapter7/image_(60).png)
+![image (60).png](static/chapter7/image_106.png)
 
 ## Just Enough and Just-in-Time Testing
 

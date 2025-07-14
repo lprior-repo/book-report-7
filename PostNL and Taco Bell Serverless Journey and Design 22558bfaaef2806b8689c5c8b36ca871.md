@@ -23,7 +23,7 @@ Serverless was deemed a perfect fit for PostNL's highly seasonal and high-volume
 
 Typical usage pattern:
 
-![image (69).png](static/postnl/image_(69).png)
+![image (69).png](static/postnl/image_124.png)
 
 1. **Effortless Scaling:** Serverless services automatically scale with demand, regardless of predictability (e.g., Black Friday or COVID-19). This means "development teams do not need to think about capacity planning." An example shows Lambda invocations growing and peaking over six months "and nobody even noticed."
 2. **Delegating the Hardest Problems to AWS:** PostNL operates at massive scales (millions of events daily, billions of IoT signals). Serverless allows them to "delegate the most difficult problems to AWS," such as capacity management, redundancy, networking, and maintenance. This means they don't need to consider physical CPUs, network scaling, or how to handle dynamic workloads. While this requires accepting "serverless’s inherent limits and opinionated design patterns," PostNL views these as beneficial "trade-offs" for "the most scalable, robust, and continually evolving services."
@@ -45,7 +45,7 @@ A critical step was designing a "greenfield AWS organization" with "funding and 
 
 The **Landing Zone PostNL Engineering (LPE)** platform codifies and enforces these principles, automating AWS account bootstrapping (within 30 minutes of approval) and maintaining guardrails. This includes SCPs prohibiting IAM user creation, use of unapproved Regions, manual changes to acceptance/production systems, and **denying all actions related to EC2 instances** (initially also RDS and Fargate, but relaxed for adoption).
 
-![image.png](static/postnl/image.png)
+![image.png](static/postnl/image_123.png)
 
 ## Freedom Within Guardrails Empowering Teams
 
@@ -97,15 +97,15 @@ The strategy started conservatively, "dipping its toes into serverless for a few
 
 ## Serverless Architecture Examples
 
-![image (95).png](static/postnl/image_(95).png)
+![image (95).png](static/postnl/image_125.png)
 
 - **Menu Middleware (Hybrid to Fully Serverless):** Started with traditional RDS MySQL and ETL tools but successfully ported menu ingestion to a monolithic .NET Lambda function, which scaled effectively. The system evolved to be fully serverless over several years, supporting 12+ integration channels and tens of thousands of menus daily.
 
-    ![image (96).png](static/postnl/image_(96).png)
+    ![image (96).png](static/postnl/image_126.png)
 
 ## Order Middleware
 
-![image (97).png](static/postnl/image_(97).png)
+![image (97).png](static/postnl/image_127.png)
 
 - 100% serverless
 - Serverless Framework for IaC

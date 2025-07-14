@@ -12,7 +12,7 @@ By far the most common architecture in Serverless.
 
 *Event-driven architecture (EDA) is an architectural concept that uses events to communicate between decoupled microservices asynchronously. In EDA, there are systems that produce events (producers), systems that consume events (consumers), applications that transport events (event buses, messaging systems, etc.), and systems that react to events.*
 
-![image (81).png](static/chapter3/image_(81).png)
+![image (81).png](static/chapter3/image_31.png)
 
 Event-driven architecture comprises four core elements:
 
@@ -29,11 +29,11 @@ Most of the managed cloud services from AWS are also event-driven.
 
 In an event-driven architecture with multiple event producers and consumers, there is a possibility that consumers may receive duplicate events. It is the responsibility of the consumer to implement the required measures to identify and eliminate the consequences of event duplication. You will learn more about this later in the chapter.
 
-![image (82).png](static/chapter3/image_(82).png)
+![image (82).png](static/chapter3/image_32.png)
 
 *Figure 3-5. A simple event-driven application where a file upload to an S3 bucket creates an event and invokes a Lambda function*
 
-![image (83).png](static/chapter3/image_(83).png)
+![image (83).png](static/chapter3/image_33.png)
 
 *Figure 3-6. A distributed application where decoupled microservices coordinate via Amazon EventBridge, acting as their event router*
 
@@ -45,7 +45,7 @@ Initially, **two-tier client/server architecture** was the standard setup: a **s
 - **Challenge**: Business logic became intertwined between tiers, making updates complex.
 -
 
-![image (84).png](static/chapter3/image_(84).png)
+![image (84).png](static/chapter3/image_34.png)
 
 ## Rise of Three-Tier Client/Server Architecture
 
@@ -56,7 +56,7 @@ To better separate responsibilities, the **three-tier architecture** emerged, ad
   - **Application Tier** (Middle Tier): Business logic
   - **Data Tier**: Database management
 
-![image (85).png](static/chapter3/image_(85).png)
+![image (85).png](static/chapter3/image_35.png)
 
 - **Key improvements**:
   - Prevented direct data manipulation by clients
@@ -84,11 +84,11 @@ While often used interchangeably, **layers** and **tiers** focus on different as
 
 - **Layered architecture**: Logical separation of system components (what functions where).
 
-![image (86).png](static/chapter3/image_(86).png)
+![image (86).png](static/chapter3/image_36.png)
 
 - **Tiered architecture**: Physical separation of system parts (where components run).
 
-![image (87).png](static/chapter3/image_(87).png)
+![image (87).png](static/chapter3/image_37.png)
 
 **Examples**:
 
@@ -118,7 +118,7 @@ While often used interchangeably, **layers** and **tiers** focus on different as
 
 - Serverless architecture often mirrors a multi-layered system where services are distributed but logically grouped by functionality.
 
-![image (88).png](static/chapter3/image_(88).png)
+![image (88).png](static/chapter3/image_38.png)
 
 ## Hexagonal Architecture (Ports and Adapters)
 
@@ -127,7 +127,7 @@ While often used interchangeably, **layers** and **tiers** focus on different as
 - **Core Idea**: Decouple service components from consumers and providers to increase flexibility and testability.
 - **Nickname**: Also called the **Ports and Adapters** pattern.
 
-![image (89).png](static/chapter3/image_(89).png)
+![image (89).png](static/chapter3/image_39.png)
 
 ## Core Components
 
@@ -215,7 +215,7 @@ In the world of software design, **multiple architectural patterns** exist to pr
 
 ## Characteristics of a Microservice
 
-![image (90).png](static/chapter3/image_(90).png)
+![image (90).png](static/chapter3/image_41.png)
 
 - Is independently deployable
 - Represents part of a business domain
@@ -227,13 +227,13 @@ In the world of software design, **multiple architectural patterns** exist to pr
 
 - **Independently Deployable**: Each microservice can be deployed without affecting others, enabling parallel team workflows and faster delivery.
 
-![image (91).png](static/chapter3/image_(91).png)
+![image (91).png](static/chapter3/image_42.png)
 
 - **Represents Part of a Business Domain**:
   - Each microservice implements a slice of the business logic.
   - Multiple microservices can collaborate within a **bounded context**.
 
-    ![image (92).png](static/chapter3/image_(92).png)
+    ![image (92).png](static/chapter3/image_43.png)
 
 - **Single Purpose (Single-Responsibility Principle)**:
   - Inspired by Robert C. Martin’s SRP: "one reason to change."
@@ -244,7 +244,7 @@ In the world of software design, **multiple architectural patterns** exist to pr
   - Clear contracts prevent leaking internal changes externally.
   - Supports decoupling and future-proofing.
 
-    ![image (93).png](static/chapter3/image_(93).png)
+    ![image (93).png](static/chapter3/image_44.png)
 
 - **Loosely Coupled**:
   - Services interact via standardized APIs or events.
@@ -280,7 +280,7 @@ In a **serverless** world, DDD becomes even more vital because the cloud’s fle
   - Bounded contexts and modular design make adapting to changing business needs easier.
   - In serverless, this is critical because cloud services evolve rapidly, and flexibility protects long-term viability.
 
-![image (9).png](static/chapter3/image_(9).png)
+![image (9).png](static/chapter3/image_40.png)
 
 ## Microservice Communication Strategies
 
@@ -294,7 +294,7 @@ The primary choice is between **synchronous** (request/response) and **asynchron
 
 **Synchronous** means the client sends a request and waits for a response.
 
-![image (8).png](static/chapter3/image_(8).png)
+![image (8).png](static/chapter3/image_30.png)
 
 It’s common, but creates **stronger coupling** between services and can introduce **latency risks**.
 
@@ -302,7 +302,7 @@ It’s common, but creates **stronger coupling** between services and can introd
   - Client (e.g., checkout) calls another service (e.g., payments) and waits.
   - Risks include service timeouts, chained dependencies, degraded UX during slowdowns.
 
-        ![image (94).png](static/chapter3/image_(94).png)
+        ![image (94).png](static/chapter3/image_45.png)
 
   - Example: Web app waiting on checkout → payments → third-party provider call chain.
 - **Request with Acknowledgment (202 Accepted)**:
@@ -314,7 +314,7 @@ It’s common, but creates **stronger coupling** between services and can introd
     - Mass generation of discount codes
     - Delayed processing of uploaded media
 
-![image.png](static/chapter3/image.png)
+![image.png](static/chapter3/image_25.png)
 
 - **Request with Acknowledgment and Client Polling**:
   - Client asks for a status update periodically (/status endpoint).
@@ -323,14 +323,14 @@ It’s common, but creates **stronger coupling** between services and can introd
     - Adds operational complexity and extra costs
     - Delays in user feedback
 
-    ![image.png](static/chapter3/image%201.png)
+    ![image.png](static/chapter3/image_11.png)
 
 - **Synchronous Request/Response with Async Webhook Notification**:
   - Instead of polling, the service pushes status updates to the client’s webhook endpoint.
   - **More efficient** and **less taxing** than polling.
   - Requires the client to maintain an endpoint to listen for callbacks.
 
-![image (7) (1).png](static/chapter3/image_(7)_(1).png)
+![image (7) (1).png](static/chapter3/image_29.png)
 
 A webhook is a form of user-defined HTTP callback. To receive notifications, the client registers an endpoint URL with the service provider to call back with the information. The client then reacts to the incoming information to trigger further processing. Webhooks are an efficient way of communicating compared to polling.
 
@@ -340,7 +340,7 @@ A webhook is a form of user-defined HTTP callback. To receive notifications, the
 - Focus is breaking a task down into smaller bits and executing on the path at a small level
 - In Lean Software Development, Mary and Tom Poppendieck introduce the following statement: ***think big; act small; fail fast; learn rapidly***
 
-![image (5).png](static/chapter3/image_(5).png)
+![image (5).png](static/chapter3/image_28.png)
 
 A set piece:  Common in theater, where it refers to a realistic piece of stage scenery built to stand independently as part of a stage set, and in music, to refer to individual parts of a composition that are written, rehearsed, recorded, and then edited together.
 
@@ -353,17 +353,17 @@ A similar concept is applied in team sports, model building, and more. Here are 
 - Different groups of people can work on different set pieces.
 - All the pieces are brought together to make the whole
 
-![image.png](static/chapter3/image%202.png)
+![image.png](static/chapter3/image_17.png)
 
 Then applying smaller pieces
 
-![image.png](static/chapter3/image%203.png)
+![image.png](static/chapter3/image_18.png)
 
 Finally applying various DDD principles and earlier principles in book
 
-![image.png](static/chapter3/image%204.png)
+![image.png](static/chapter3/image_19.png)
 
-![image.png](static/chapter3/image%205.png)
+![image.png](static/chapter3/image_20.png)
 
 ## Bringing it all together
 
@@ -375,11 +375,11 @@ In serverless, you also have powerful ways to make the set pieces work togeth
 - Events, as in the publish/subscribe model in event-driven architecture for asynchronous communication
 - Messages, for more direct and decoupled communication between a producer and a consumer
 
-![image.png](static/chapter3/image%206.png)
+![image.png](static/chapter3/image_21.png)
 
-![image (4).png](static/chapter3/image_(4).png)
+![image (4).png](static/chapter3/image_27.png)
 
-![image (3).png](static/chapter3/image_(3).png)
+![image (3).png](static/chapter3/image_26.png)
 
 ## Breaking a Problem Down Into Pieces
 
@@ -411,9 +411,9 @@ Event-driven computing is the implementation or realization of event-driven arch
 
 A reactive microservice is loosely coupled, resilient and scalable but beyond loose coupling doesn’t show much.
 
-![image.png](static/chapter3/image%207.png)
+![image.png](static/chapter3/image_22.png)
 
-![image.png](static/chapter3/image%208.png)
+![image.png](static/chapter3/image_23.png)
 
 EDA pairs well with serverless as they complement serverless in that they enable on-demand computing, scale to zero, and pay per use.
 
@@ -421,7 +421,7 @@ EDA pairs well with serverless as they complement serverless in that they enable
 
 Amazon EventBridge is a serverless event bus for building event-driven applications. It ingests events from various producers, filters them, performs optional data transformation, and routes them to one or more target services.
 
-![image.png](static/chapter3/image%209.png)
+![image.png](static/chapter3/image_24.png)
 
 ## Core Functionality
 
@@ -455,13 +455,13 @@ Amazon EventBridge is a serverless event bus for building event-driven applicati
 
 - **Event Archiving and Replay**: You can archive events based on a filter pattern. Later, you can replay these archived events back onto the original event bus for a specific time window. Replayed events contain a `replay-name` attribute to distinguish them from original events.
 
-![image.png](static/chapter3/image%2010.png)
+![image.png](static/chapter3/image_12.png)
 
 - **Event Schema Registry**: EventBridge can automatically discover the structure (schema) of events. It provides a schema registry to store and manage these schemas. You can also upload custom schemas and generate code bindings to validate events and prevent breaking changes for consumers.
 - **EventBridge Scheduler**: This feature allows you to schedule millions of one-time or recurring tasks to invoke over 270 AWS services. It's a fully managed, serverless scheduler with built-in retry mechanisms.
 - **EventBridge Pipes**: Pipes create a point-to-point integration between a single event producer and a single consumer. Within a pipe, you can filter, transform, and enrich event data, often reducing the need for custom integration code.
 
-![image.png](static/chapter3/image%2011.png)
+![image.png](static/chapter3/image_13.png)
 
 ## Domain Events, Event Categories and Types
 
@@ -746,15 +746,15 @@ Several architectural options exist for the scope of an event store:
 - **Dedicated Microservice:** A single-purpose microservice can be created to handle all event sourcing concerns, including ingesting events, managing the store, and applying data retention policies.
 - **Event Store per Bounded Context:** Each well-defined business area (bounded context) can have its own event store. This is useful for auditing and reconstructing the state of entities within that specific context.
 
-![image.png](static/chapter3/image%2012.png)
+![image.png](static/chapter3/image_14.png)
 
 - **Application-Level Event Store:** For complex applications like e-commerce, where a user's journey touches multiple bounded contexts (stock, cart, payments), an application-level store is needed to collate all related events and reconstruct the end-to-end flow.
 
-![image.png](static/chapter3/image%2013.png)
+![image.png](static/chapter3/image_15.png)
 
 - **Centralized Event Sourcing Cloud Account:** This enterprise-level approach consolidates events from multiple accounts and regions into a single, central repository for security audits, compliance, and business analysis. However, it presents significant challenges in standardizing event sharing, identifying and sourcing all necessary events, structuring the store, and managing data access securely.
 
-![image.png](static/chapter3/image%2014.png)
+![image.png](static/chapter3/image_16.png)
 
 While not every application needs to reconstruct state from events, all teams can benefit from an event store for auditing and tracing critical business flows.
 

@@ -34,7 +34,7 @@ responsibility.
 
 In an organization riddled with years of technical neglect, team misalignment, Stone Age thinking, and stubborn engineering minds that resist change, serverless adoption is a tough act to pull off. There is considerable preparation work required to bring such an organization into a state conducive to serverless adoption and growth. Else you will create the Serverless Big Ball of Mud
 
-![image (70).png](static/chapter2/image_(70).png)
+![image (70).png](static/chapter2/image_1.png)
 
 Embrace first principles thinking
 
@@ -50,7 +50,7 @@ Bounded Contexts:
 
 A bounded context is a boundary within a domain where a particular domain model applies. It reveals distinct characteristics and interacts with other bounded contexts via well-defined communication mechanisms such as APIs.
 
-![image (71).png](static/chapter2/image_(71).png)
+![image (71).png](static/chapter2/image_2.png)
 
 Answering the following questions becomes easier when you get to this level:
 
@@ -72,7 +72,7 @@ Once you’ve mapped out your subdomains and their boundaries, you need people w
 
 Amazon’s two-pizza team concept is often brought up in discussions about modern software development teams. But while it’s become common to measure the size of a team based on their appetite for pizza, people often forget that these teams are intentionally kept small because the business domains they are part of are also broken down to a granular level to give each team a singular purpose, focus, and identity.
 
-![image (72).png](static/chapter2/image_(72).png)
+![image (72).png](static/chapter2/image_3.png)
 
 Team Topologies introduces new thinking around effective team structures for enterprise software delivery. It discusses four team types: stream-aligned,
 enabling, platform, and complicated subsystem teams.
@@ -95,7 +95,7 @@ publishing the interfaces to the system you are building. The API
 becomes a first-class citizen and plays a significant role in the
 tactical design and evolution of the application.
 
-![image (74).png](static/chapter2/image_(74).png)
+![image (74).png](static/chapter2/image_4.png)
 
 > **TIP:** API governance and discoverability are the two most common issues enterprises face when several teams own  and operate APIs. API portals often help discover and consume APIs in a *self-service* model. However, if you are just starting out with your API-first strategy and initial APIs, don't get overburdened with these different processes, as they can be worked on in parallel as you create more APIs
 > and gain experience.
@@ -104,7 +104,7 @@ tactical design and evolution of the application.
 
 With a marked boundary (bounded context) and well-defined (micro) interfaces (API), it becomes easier to own and manage the implementation of the business logic. In this context, microservices offer a suitable development pattern to realize the domain logic. Each microservice has a purpose and identity. In most designs, you will find a microservice related to a bounded context as a one-to-one mapping, but that isn’t the only option.
 
-![image (75).png](static/chapter2/image_(75).png)
+![image (75).png](static/chapter2/image_5.png)
 
 A microservice should be owned and operated by one team. Never have two teams share ownership of one microservice. This clear responsibility and business alignment reduces the cognitive load on engineers, thereby increasing development velocity and flow.
 
@@ -118,7 +118,7 @@ Asynchronicity, eventual consistency, and event-driven communication are the dri
 
 An *event*, in general, is something that has already happened. A *domain event* is about something that has happened within your business domain. Event-driven architecture (EDA) is an architectural concept that uses events to  communicate between decoupled microservices asynchronously. In EDA,  there are systems that produce events (producers), systems that consume events (consumers), applications that transport events (event buses, messaging systems, etc.), and systems that react to events. Among several other benefits, EDA is key to the scaling and resiliency of applications.
 
-![image (76).png](static/chapter2/image_(76).png)
+![image (76).png](static/chapter2/image_6.png)
 
 **Serverless First:**
 
@@ -216,9 +216,9 @@ Use a phased Migration:
 
 Pick a few and apply the strangler pattern to them., Take the learnings and keep going.
 
-![image (77) (1).png](static/chapter2/image_(77)_(1).png)
+![image (77) (1).png](static/chapter2/image_7.png)
 
-![image (78).png](static/chapter2/image_(78).png)
+![image (78).png](static/chapter2/image_8.png)
 
 ## Growing Serverless Teams
 
@@ -234,7 +234,7 @@ Pick a few and apply the strangler pattern to them., Take the learnings and keep
   - Similarly, the engineers who are part of an organization’s serverless ecosystem need a constant supply of knowledge to upskill and keep up with the evolving technology landscape. New services, features, tools, frameworks, patterns, and capabilities are announced almost daily, and keeping pace with the speed of change can be challenging for a new team of serverless engineers. Hence, the necessary measures must be identified and implemented to swiftly assess and address these needs from the early days of serverless adoption.
 - Be willing to upskill in Mass
 
-    ![image (79).png](static/chapter2/image_(79).png)
+    ![image (79).png](static/chapter2/image_9.png)
 
   -
 - Find the Passionate Pilot Engineers
@@ -254,7 +254,7 @@ Pick a few and apply the strangler pattern to them., Take the learnings and keep
   - Take part in architectural discussions and implement solution designs
   - Are not afraid to deploy to production on a Friday afternoon
 
-![image (80).png](static/chapter2/image_(80).png)
+![image (80).png](static/chapter2/image_10.png)
 
 A serverless engineer is a software engineer who is innovative and capable of building efficient, secure, cost-effective, functional, and event-driven solutions iteratively using managed services and operating them on the cloud.
 
