@@ -1,7 +1,5 @@
 # 1. Introduction To Serverless on AWS
 
-![image.png](static/chapter1/image.png)
-
 ## Serverless Characteristics
 
 A critical distinction for serverless:
@@ -28,15 +26,11 @@ Serverless is defined as a "technological concept that utilizes fully managed cl
 
 Many factors contribute to this initial latency: the size of the function’s deployment package, the runtime environment of the programming language, the memory (RAM) allocated to the function, the number of pre-configurations (such as static data initializations), etc.
 
-**TIP:** You can opt to keep a certain number of functions "warm" in ready state by setting a functions provisioned concurrency value. 
-
-![image.png](static/chapter1/image%201.png)
+**TIP:** You can opt to keep a certain number of functions "warm" in ready state by setting a functions provisioned concurrency value.
 
 ## Individuality and Granularity of Resources
 
 *The ability to configure and operate serverless services at an individual level allows you to look at your serverless application not just as a whole but at the level of each resource, working with its specific characteristics.
-
-![image.png](static/chapter1/image%202.png)
 
 ## Optimize for Service Cost and Performance
 
@@ -101,7 +95,6 @@ Adopting a DevOps model takes a software engineer who otherwise focuses on devel
 
 Adopting a serverless model takes you many steps further. Though it frees you from managing servers, you are now programming the business logic, composing your application using managed services, knitting them together with infrastructure as code (IaC), and operating them in the cloud. Just knowing how to write software is not enough. You have to protect your application from malicious users, make it available 24/7 to customers worldwide, and observe its operational characteristics to improve it continually. Becoming a successful serverless engineer thus requires developing a whole new set of skills, and cultivating a DevOps mindset 
 
-![image.png](static/chapter1/image%203.png)
 
 ## What’s in a Name?
 
@@ -111,7 +104,6 @@ The most popular and relevant theory suggests that services with the Amazon pref
 
 Various AWS Resources:
 
-![image.png](static/chapter1/image%204.png)
 
 ## The AWS Well-Architected Framework
 
